@@ -3,7 +3,7 @@
 
 # :tada: :tada: Welcome to the Customer Success hub :tada: :tada:
 
-You'll find open source solutions that help you leveling up your observability game with Dynatrace.
+You'll find open source solutions that help you level up your observability game with Dynatrace.
 
 ## Dynatrace Tenant Review
 *The assistant that helps you get the maximum value from the Dynatrace platform.*
