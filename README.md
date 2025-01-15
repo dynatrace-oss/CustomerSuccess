@@ -18,3 +18,12 @@ The Dynatrace Tenant Review is:
  - Safe: The Dashboards app and the DTR are both restricted to read-only permissions/calls by design. Furthermore, no data ever leaves the Dynatrace tenant.
  - Fast: The analytics happens where the data resides, in Grail™.
  - Open source: Copy, inspect, customize and share it in a few clicks!
+
+## Software Obsolescence Management
+*The solution that lets you stay on top of your software portfolio.*
+
+![Software Obsolescence Management](https://github.com/dynatrace-oss/CustomerSuccess/blob/main/Software%20Obsolescence%20Management/screenshot.png "Software Obsolescence Management")
+
+The JavaScript Workflow regularly refreshes obsolescence data required for your environment from external open source APIs. The DQL Dashboard matches this external data with native Dynatrace data to let you discover prioritized maintenance actions to keep your software components and operations safe, compliant and supported by the corresponding vendors (when applicable).
+
+Dynatrace users can download and import the JSON definition of the Dashboard in their own tenant and follow the instructions provided in its bottom-right corner tile.
