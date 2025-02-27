@@ -3,10 +3,10 @@ metadata:
   dependencies:
     apps:
       - id: dynatrace.automations
-        version: ^1.1216.0
+        version: ^1.1472.0
   inputs: []
 workflow:
-  title: Software Obsolescence Management workflow 1.0.0 (Refresh Data)
+  title: Software Obsolescence Management workflow 1.1.0 (Refresh Data)
   tasks:
     run_javascript_1:
       name: run_javascript_1
@@ -493,10 +493,12 @@ workflow:
       timezone: Europe/Madrid
       isActive: true
       isFaulty: false
-      nextExecution: 2025-01-16T03:00:00.000Z
+      nextExecution: 2025-02-28T03:00:00.000Z
       filterParameters:
         earliestStart: 2024-10-05
         earliestStartTime: 22:22
       inputs: {}
   schemaVersion: 3
+  result: null
+  input: {}
   type: STANDARD
