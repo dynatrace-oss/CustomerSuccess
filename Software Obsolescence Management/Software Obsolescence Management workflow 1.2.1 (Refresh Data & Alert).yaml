@@ -3,10 +3,10 @@ metadata:
   dependencies:
     apps:
       - id: dynatrace.automations
-        version: ^1.1547.1
+        version: ^1.2075.0
   inputs: []
 workflow:
-  title: Software Obsolescence Management workflow 1.2.0 (Refresh Data & Alert)
+  title: Software Obsolescence Management workflow 1.2.1 (Refresh Data & Alert)
   tasks:
     run_javascript_1:
       name: run_javascript_1
@@ -198,10 +198,21 @@ workflow:
                           delete entity['Time Before Obsolescence'];
                           delete entity['lastAlert'];
                           entity['Max Remaining Days Before Obsolescence'] = parseInt(threshold);
+                          // Remove null values in case of support override
+                          if(entity['OS'] === null) delete entity['OS'];
+                          if(entity['LTS'] === null) delete entity['LTS'];
+                          if(entity['Cycle'] === null) delete entity['Cycle'];
+                          if(entity['Latest Version Published at'] === null) delete entity['Latest Version Published at'];
+                          if(entity['Cycle Published At'] === null) delete entity['Cycle Published At'];
+                          if(entity['Running Version'] === null) delete entity['Running Version'];
+                          if(entity['Latest Version'] === null) delete entity['Latest Version'];
+                          if(entity['Link'] === null) delete entity['Link'];
+                          if(entity['End of Life'] === null) delete entity['End of Life'];
+                          if(entity['key'] === null) delete entity['key'];
                           // Add source for DQL lookup on those events
                           entity['source'] = 'software-obsolescence-management.os-alert';
                           const event = {
-                            title: (threshold === '0' ? `${entity.OS} ${entity['Running Version']} is now obsolete` : `${entity.OS} ${entity['Running Version']} will become obsolete within ${threshold} day${parseInt(threshold) > 0 ? 's' : ''}`) + ` on host ${host}`,
+                            title: (threshold === '0' ? `${entity.OS ? entity.OS : 'OS'} ${entity['Running Version'] ? entity['Running Version'] : entity['Full OS Name']} is now obsolete` : `${entity.OS ? entity.OS : 'OS'} ${entity['Running Version'] ? entity['Running Version'] : entity['Full OS Name']} will become obsolete within ${threshold} day${parseInt(threshold) > 0 ? 's' : ''}`) + ` on host ${host}`,
                             eventType: alertThresholds[threshold],
                             entitySelector: `type(HOST),entityId(${id})`,
                             properties: entity
@@ -731,7 +742,6 @@ workflow:
       timezone: UTC
       isActive: true
       isFaulty: false
-      nextExecution: 2025-03-15T04:00:00.000Z
       filterParameters:
         earliestStart: 2025-03-13
         earliestStartTime: 00:08
