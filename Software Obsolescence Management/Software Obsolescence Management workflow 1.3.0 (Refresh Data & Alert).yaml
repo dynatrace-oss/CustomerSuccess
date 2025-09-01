@@ -6,7 +6,7 @@ metadata:
         version: ^1.2075.0
   inputs: []
 workflow:
-  title: Software Obsolescence Management workflow 1.2.1 (Refresh Data & Alert)
+  title: Software Obsolescence Management workflow 1.3.0 (Refresh Data & Alert)
   tasks:
     run_javascript_1:
       name: run_javascript_1
@@ -256,6 +256,11 @@ workflow:
 
           let eolTechnologies;
 
+          const osToProductSlugMap = {
+            'Red Hat Enterprise Linux Server': 'rhel',
+            'Red Hat Enterprise Linux Server release': 'rhel'
+          };
+
           async function getFreshOsData(osVersion) {
             const cleanOsVersion = osVersion.substring(0, osVersion.indexOf('(') > -1 ? osVersion.indexOf('(') : osVersion.length);
             console.log(cleanOsVersion);
@@ -281,9 +286,10 @@ workflow:
             let data;
             let matchedEolTechnologies = [];
             eolTechnologies.forEach(eolTechnology => {
+              // console.log(eolTechnology);
               let score = 0;
               // Add points thanks to the manual technologyToProductSlugMap
-              // if(technologyToProductSlugMap[technology] === eolTechnology.slug) score = score + 10;
+              if(osToProductSlugMap[os] === eolTechnology.slug) score = score + 10;
               // Scoring based on product slug versus os
               if(os.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.slug.match(/[a-z]+/g).join('')) score = score + 10;
               eolTechnology.slug.split('-').forEach(eolTechSlugSection => {
@@ -293,14 +299,16 @@ workflow:
                 }
               });
               // Scoring based on product name versus technology
-              if(os.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join('')) score = score + 10;
-              eolTechnology.name.split(' ').forEach(eolTechNameSection => {
-                eolTechNameSection = eolTechNameSection.toLowerCase();
-                if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from') {
-                  if(os.toLowerCase().split(' ').includes(eolTechNameSection)) score++;
-                  if(os.toLowerCase().split(' ').includes(eolTechNameSection) && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e => e.name.toLowerCase().includes(eolTechNameSection)).length < 3) score++;
-                }
-              });
+              if(eolTechnology.name && os.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join('')) score = score + 10;
+              if(eolTechnology.name) {
+                eolTechnology.name.split(' ').forEach(eolTechNameSection => {
+                  eolTechNameSection = eolTechNameSection.toLowerCase();
+                  if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from') {
+                    if(os.toLowerCase().split(' ').includes(eolTechNameSection)) score++;
+                    if(os.toLowerCase().split(' ').includes(eolTechNameSection) && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e => e.name && e.name.toLowerCase().includes(eolTechNameSection)).length < 3) score++;
+                  }
+                });      
+              }
               if(score > 2) {
                 matchedEolTechnologies.push({
                   product: eolTechnology.slug,
@@ -382,14 +390,16 @@ workflow:
                 }
               });
               // Scoring based on product name versus technology
-              if(technology.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join('')) score = score + 10;
-              eolTechnology.name.split(' ').forEach(eolTechNameSection => {
-                eolTechNameSection = eolTechNameSection.toLowerCase();
-                if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from') {
-                  if(technology.toLowerCase().includes(eolTechNameSection)) score++;
-                  if(technology.toLowerCase().includes(eolTechNameSection) && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e => e.name.toLowerCase().includes(eolTechNameSection)).length < 3) score++;
-                }
-              });
+              if(eolTechnology.name && technology.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join('')) score = score + 10;
+              if(eolTechnology.name) {
+                eolTechnology.name.split(' ').forEach(eolTechNameSection => {
+                  eolTechNameSection = eolTechNameSection.toLowerCase();
+                  if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from') {
+                    if(technology.toLowerCase().includes(eolTechNameSection)) score++;
+                    if(technology.toLowerCase().includes(eolTechNameSection) && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e => e.name && e.name.toLowerCase().includes(eolTechNameSection)).length < 3) score++;
+                  }
+                });
+              }
               if(score > 2) {
                 matchedEolTechnologies.push({
                   product: eolTechnology.slug,
@@ -426,23 +436,25 @@ workflow:
                   console.log(parseInt(cycles[0].latest));
                   if(parseInt(version) > parseInt(cycles[0].latest)) {
                     data = null;
-                    throw Error(`The latest release of the retrieved EOL product is lower than the detected technology's current version`);
+                    console.warn(`Warning: The latest release of the retrieved EOL product is lower than the detected technology's current version`);
                   }
-                  const candidateCycles = cycles.filter(e => version.substring(0, e.cycle.length) === e.cycle);
-                  if(candidateCycles.length > 0) {
-                    candidateCycles.sort(function (a, b) {
-                      if (a.cycle.length < b.cycle.length) {
-                        return 1;
-                      }
-                      if (a.cycle.length > b.cycle.length) {
-                        return -1;
-                      }
-                      return 0;
-                    });
-                    data.currentCycle = candidateCycles[0].cycle;
-                    data.currentCyclePublishedAt = candidateCycles[0].releaseDate;
-                    data.lts = candidateCycles[0].lts;
-                    data.eol = candidateCycles[0].eol;
+                  if(data !== null) {
+                    const candidateCycles = cycles.filter(e => version.substring(0, e.cycle.length) === e.cycle);
+                    if(candidateCycles.length > 0) {
+                      candidateCycles.sort(function (a, b) {
+                        if (a.cycle.length < b.cycle.length) {
+                          return 1;
+                        }
+                        if (a.cycle.length > b.cycle.length) {
+                          return -1;
+                        }
+                        return 0;
+                      });
+                      data.currentCycle = candidateCycles[0].cycle;
+                      data.currentCyclePublishedAt = candidateCycles[0].releaseDate;
+                      data.lts = candidateCycles[0].lts;
+                      data.eol = candidateCycles[0].eol;
+                    }
                   }
                 }
               } catch(e) {
@@ -506,15 +518,12 @@ workflow:
               });
               // Try to augment them with the corresponding product name, scraping the homepage's navigation menu (product name is not available via API)
               try {
-                let eolNavMenu = await fetch('https://endoflife.date').then((response) => response.text());
-                eolNavMenu = eolNavMenu.substring(eolNavMenu.indexOf('<li class="nav-list-item">'), eolNavMenu.indexOf('</ul>', eolNavMenu.indexOf('"nav-list"')));
-                // console.log(eolNavMenu);
-                const productMap = eolNavMenu.split('</li>').map(e => {
-                  return {
-                    slug: e.substring(e.indexOf('href="/') + 7, e.indexOf('"', e.indexOf('href="/') + 7)),
-                    name: e.substring(e.indexOf('">', e.indexOf('<a')) + 2, e.indexOf('</a>'))
-                  };
-                });
+                let homepageHtml = await fetch('https://endoflife.date').then((response) => response.text());
+                const regex = /<a href="\/([^"]+)" class="nav-list-link">([^<]+)<\/a>/g;
+                const productMap = [];
+                for (const match of homepageHtml.matchAll(regex)) {
+                  if(!match[1].includes('/')) productMap.push({ slug: match[1], name: match[2] }); // Filter category links out
+                }
                 // console.log(productMap);
                 eolTechnologies.forEach(e => {
                   try {
@@ -591,15 +600,12 @@ workflow:
               });
               // Try to augment them with the corresponding product name, scraping the homepage's navigation menu (product name is not available via API)
               try {
-                let eolNavMenu = await fetch('https://endoflife.date').then((response) => response.text());
-                eolNavMenu = eolNavMenu.substring(eolNavMenu.indexOf('<li class="nav-list-item">'), eolNavMenu.indexOf('</ul>', eolNavMenu.indexOf('"nav-list"')));
-                // console.log(eolNavMenu);
-                const productMap = eolNavMenu.split('</li>').map(e => {
-                  return {
-                    slug: e.substring(e.indexOf('href="/') + 7, e.indexOf('"', e.indexOf('href="/') + 7)),
-                    name: e.substring(e.indexOf('">', e.indexOf('<a')) + 2, e.indexOf('</a>'))
-                  };
-                });
+                let homepageHtml = await fetch('https://endoflife.date').then((response) => response.text());
+                const regex = /<a href="\/([^"]+)" class="nav-list-link">([^<]+)<\/a>/g;
+                const productMap = [];
+                for (const match of homepageHtml.matchAll(regex)) {
+                  if(!match[1].includes('/')) productMap.push({ slug: match[1], name: match[2] }); // Filter category links out
+                }
                 // console.log(productMap);
                 eolTechnologies.forEach(e => {
                   try {
@@ -737,8 +743,8 @@ workflow:
       trigger:
         type: interval
         intervalMinutes: 2
-        betweenStart: 04:00
-        betweenEnd: 06:00
+        betweenStart: 00:00
+        betweenEnd: 08:00
       timezone: UTC
       isActive: true
       isFaulty: false
