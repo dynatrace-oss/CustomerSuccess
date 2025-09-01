@@ -30,6 +30,7 @@ The JavaScript Workflow regularly refreshes obsolescence data required for your 
 **Installation**: Download and import the JSON definition of the Dashboard in their own tenant and follow the instructions provided in its bottom-right corner tile.
 
 **Usage**:
+- Scope the audit by Segment, Management Zone or Tag
 - Filter by obsolescence statuses
 - Filter by Operating Systems, Technologies and Libraries
 - Prioritize your maintenance by vulnerability and obsolescence risk, criticity and radius of the affected software components or even time remaining before obsolescence
