@@ -25,7 +25,7 @@ The Dynatrace Tenant Review is:
 
 ![Platform Adoption Dashboard](./Platform%20Adoption/screenshot.png "Platform Adoption Dashboard")
 
-This Dashboard leverages Grail™ audit events, query execution telemetry, workflow events and billing data to surface actionable insights about how your organization uses Dynatrace. With 40 tiles it covers active users, stickiness, app adoption rankings, lifecycle cohorts, legacy migration tracking, workflow health, DQL analytics, AI/Copilot usage and more.
+This Dashboard leverages Grail™ events, query execution telemetry, workflow events and billing data to surface actionable insights about how your organization uses Dynatrace. With 40 tiles it covers active users, stickiness, app adoption rankings, lifecycle cohorts, legacy migration tracking, workflow health, DQL analytics, AI/Copilot usage and more.
 
 Admins can download and import the JSON definition of the Dashboard in their own tenant to understand which teams are active, which platform capabilities are under-utilized, and where to focus enablement efforts.
 
@@ -35,7 +35,7 @@ The Platform Adoption Dashboard is:
  - **Fast**: All analytics happen where the data resides, in Grail™.
  - **Open source**: Copy, inspect, customize and share it in a few clicks!
 
-**Installation**: Download and import the YAML definition of the Dashboard into your Dynatrace tenant via the Dashboards app.
+**Installation**: Download and import the JSON of the Dashboard into your Dynatrace tenant via the Dashboards app.
 
 **Usage**:
 
