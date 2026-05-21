@@ -9,7 +9,7 @@ You'll find open source solutions that help you level up your observability game
 ## Dynatrace Tenant Review
 *The assistant that helps you get the maximum value from the Dynatrace platform.*
 
-![Dynatrace Tenant Review](https://github.com/dynatrace-oss/CustomerSuccess/blob/main/Dynatrace%20Tenant%20Review/screenshot.png "Dynatrace Tenant Review")
+![Dynatrace Tenant Review](./Dynatrace%20Tenant%20Review/screenshot.png "Dynatrace Tenant Review")
 
 This Dashboard highly leverages code tiles to perform a wide and deep analysis of your actual state of configuration and adoption of top Dynatrace capabilities.
 
@@ -46,12 +46,13 @@ The Platform Adoption Dashboard is:
 - Analyze DQL query volume, data consumption and domain coverage
 - Monitor workflow execution health and automation trends
 - Track Davis Copilot and AI/Agent usage across the platform
+- Generate a **Davis AI narrative report** summarizing adoption trends, top users, trending/fading apps, and recommended next steps for the past 30 days
 - Share filtered views with stakeholders to drive adoption initiatives
 
 ## Software Obsolescence Management
 *The solution that lets you stay on top of your software portfolio.*
 
-![Software Obsolescence Management](https://github.com/dynatrace-oss/CustomerSuccess/blob/main/Software%20Obsolescence%20Management/screenshot.png "Software Obsolescence Management")
+![Software Obsolescence Management](./Software%20Obsolescence%20Management/screenshot.png "Software Obsolescence Management")
 
 The JavaScript Workflow regularly refreshes obsolescence data required for your environment from external open source APIs. The DQL Dashboard matches this external data with native Dynatrace data to let you discover prioritized maintenance actions to keep your software components and operations safe, compliant and supported by the corresponding vendors (when applicable).
 
