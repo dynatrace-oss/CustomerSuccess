@@ -220,7 +220,7 @@ workflow:
           \ DQL are working together ↓ ---------------------------------\n\n\n//---------------------------------\
           \ ↓ Utilities for refreshing OS data ↓ ---------------------------------\n\
           \nlet eolTechnologies;\n\n// set this to a sensible value\nconst refreshInterval\
-          \ = '-7d';\n\nconst osToProductSlugMap = {\n  'Red Hat Enterprise Linux\
+          \ = '7d';\n\nconst osToProductSlugMap = {\n  'Red Hat Enterprise Linux\
           \ Server': 'rhel',\n  'Red Hat Enterprise Linux Server release': 'rhel'\n\
           };\n\nasync function getFreshOsData(osVersion) {\n  const cleanOsVersion\
           \ = osVersion.substring(0, osVersion.indexOf('(') > -1 ? osVersion.indexOf('(')\
