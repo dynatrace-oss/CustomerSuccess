@@ -6,7 +6,7 @@ metadata:
       version: ^1.2926.0
   inputs: []
 workflow:
-  title: software_maintenance
+  title: Software Obsolescence Management Workflow 1.5.0 (Refresh Data & Alert)
   description: ''
   schemaVersion: 4
   trigger: {}
