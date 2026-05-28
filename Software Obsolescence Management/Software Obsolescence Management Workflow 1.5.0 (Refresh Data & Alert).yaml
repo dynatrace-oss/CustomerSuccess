@@ -1,0 +1,617 @@
+metadata:
+  version: '1'
+  dependencies:
+    apps:
+    - id: dynatrace.automations
+      version: ^1.3074.0
+  inputs: []
+workflow:
+  title: Software Obsolescence Management Workflow 1.5.0 (Refresh Data & Alert)
+  description: ''
+  schemaVersion: 4
+  trigger:
+    schedule:
+      isActive: true
+      trigger:
+        type: interval
+        betweenEnd: 06:00
+        betweenStart: 04:00
+        intervalMinutes: 2
+      filterParameters:
+        earliestStart: '2026-05-28'
+        earliestStartTime: '11:40'
+      timezone: UTC
+      inputs: {}
+  result: null
+  type: STANDARD
+  input: {}
+  hourlyExecutionLimit: 1000
+  guide: null
+  tasks:
+    config:
+      name: config
+      input:
+        script: "import { execution } from \"@dynatrace-sdk/automation-utils\"\n\n\
+          export default async function ({ execution_id }) {\n  //---------------------------------\
+          \ ↓ User configuration of the proactive alerting system ↓ ---------------------------------\n\
+          \  \n  /*\n  \n  * Enable/disable the pre-defined thresholds - in amount\
+          \ of remaining\n  days before obsolescence - which to raise Davis events\
+          \ for.\n  \n  * Possible values are 'CUSTOM_INFO', 'CUSTOM_ALERT' and false.\
+          \ Do NOT\n  modify the two possible thresholds keys (eg. '0' and '30').\n\
+          \  \n  */\n  \n  const alertThresholds = {\n    '0': 'CUSTOM_INFO',\n  \
+          \  '30': 'CUSTOM_INFO'\n  }\n  \n  /*\n  \n  * You can define a list of\
+          \ management zones by their full name to\n  restrict the alerting to specific\
+          \ perimeters.\n  \n  * If the workflow detects the upcoming obsolescence\
+          \ of operating\n  systems running in your environment,\n  \n  * it will\
+          \ only act on the previously-defined thresholds if at least\n  one of the\
+          \ host's management zones is part of this list.\n  \n  * It will not act\
+          \ on the previously-defined thresholds if none of the\n  host's management\
+          \ zones is part of this list.\n  \n  * No management zone restriction applies\
+          \ if this list is an empty\n  array:\n  \n  */\n  \n  const alertManagementZoneRestrictions\
+          \ = [\n    // '[MyApp] Infra layer',\n    // 'Special MZ 208569',\n    //\
+          \ 'NORAM overview',\n  ]\n  \n  /*\n  \n  * Same concept applies for tags:\n\
+          \  \n  */\n  \n  const alertTagRestrictions = [\n    // 'stage:prod',\n\
+          \    // 'K8host:d1-eks-demo',\n    // 'kubernetes',\n  ]\n  \n  /*\n  \n\
+          \  * Note: the combination of both a list of management zone(s) and\n  tag(s)\
+          \ is restrictive.\n  \n  * This means that only entities respecting *both*\
+          \ types of\n  restrictions will be included in the obsolesence analysis\n\
+          \  \n  */\n  \n  /*\n  \n  * Update the overrides constant below with your\
+          \ own OS support\n  extensions or end of life documentation\n  \n  * For\
+          \ operating systems, use the Full Name as key and define the\n  extended\
+          \ support date (YYYY-MM-DD)\n  \n  * You can review below a few commented\
+          \ examples of support extension\n  definition\n  \n  */\n  \n  const supportOverrides\
+          \ = {\n    // 'Linux - Debian GNU/Linux 10 (buster) (kernel 5.10.233-224.894.amzn2.x86_64)':\
+          \ '2026-09-10',\n    // 'Debian GNU/Linux 12 (bookworm) (kernel 6.1.0-25-cloud-amd64)':\
+          \ '2026-10-30',\n    // 'Ubuntu 18.04.6 LTS (Bionic Beaver) (kernel 5.4.0-1089-azure)':\
+          \ '2026-10-30',\n    // 'Container-Optimized OS 113 (kernel 6.1.123+)':\
+          \ '2025-10-30',\n    // 'Amazon Linux 2 (kernel 5.10.197-186.748.amzn2.x86_64)':\
+          \ '2025-04-03'\n  };\n  \n  \n  //--------------------------------- End\
+          \ of user configuration of the proactive alerting system ---------------------------------\n\
+          \n  const VARIABLES = {\n    alertThresholds: alertThresholds,\n    alertManagementZoneRestrictions:\
+          \ alertManagementZoneRestrictions,\n    alertTagRestrictions: alertTagRestrictions,\n\
+          \    supportOverrides: supportOverrides,\n    \n  }\n  return VARIABLES\n\
+          }\n"
+      action: dynatrace.automations:run-javascript
+      position:
+        x: 0
+        y: 1
+      description: Run custom JavaScript code.
+      predecessors: []
+    alert_os_eos:
+      name: alert_os_eos
+      input:
+        script: "import { eventsClient } from\n'@dynatrace-sdk/client-classic-environment-v2';\n\
+          \nimport { queryExecutionClient } from \"@dynatrace-sdk/client-query\";\n\
+          \    \n//--------------------------------- ↓ Only modify the code section\
+          \ below if you fully understand how the workflow's code and dashboard's\
+          \ DQL are working together ↓ ---------------------------------\n\n//---------------------------------\
+          \ ↓ Raise proactive alerts ↓ ---------------------------------\n\nasync\
+          \ function raiseProactiveAlerts(alertThresholds, supportOverrides, alertManagementZoneRestrictions,\
+          \ alertTagRestrictions) {\n  if(Object.keys(alertThresholds).find(e => alertThresholds[e]\
+          \ !== false && alertThresholds[e] !== 'false')) { // Launch the worker only\
+          \ if there's at least one threshold activated (cf. constants above)\n  \
+          \  console.log('Launching the obsolescence alerting worker...')\n    const\
+          \ overridesVariableArray = [];\n    for(let override of Object.keys(supportOverrides))\
+          \ {\n      const overridesVariable = {};\n      overridesVariable[override]\
+          \ = supportOverrides[override];\n      overridesVariableArray.push(JSON.stringify(overridesVariable).replace(/\"\
+          /g, \"'\"));\n    }\n    console.log('Support overrides:')\n    console.log(overridesVariableArray.map(e\
+          \ => `\"${e}\"`).join(','));\n    try {\n      const query = {\n       \
+          \ body: {\n          query: 'fetch dt.entity.host, from: -15m | fieldsAdd\
+          \ osVersion, managementZones, hostGroupName, tags, softwareObsolescenceManagement\
+          \ = entity.name | filter isNotNull(osVersion) | fieldsAdd result = lookup([\
+          \ fetch events, from: -7d | filter dt.system.bucket == \"default_davis_custom_events\"\
+          \ | filter event.name == \"software-obsolescence-management.os-info\" |\
+          \ sort timestamp DESC ], sourceField:osVersion, lookupField:key ) | fieldsFlatten\
+          \ result, prefix:\"event.\" | fieldsAdd `Extended Support` = if( ((indexOf(toString(array('\
+          \ +\n            overridesVariableArray.map(e => `\"${e}\"`).join(',') +\n\
+          \            ')), osVersion, from: 0) >= 0) AND (indexOf(toString(array('\
+          \ +\n            overridesVariableArray.map(e => `\"${e}\"`).join(',') +\n\
+          \            ')), \"}\", from: indexOf(toString(array(' +\n            overridesVariableArray.map(e\
+          \ => `\"${e}\"`).join(',') +\n            ')), osVersion, from: 0)) >= 0)),\
+          \ substring( toString(array(' +\n            overridesVariableArray.map(e\
+          \ => `\"${e}\"`).join(',') +\n            ')), from: ( (indexOf(toString(array('\
+          \ +\n            overridesVariableArray.map(e => `\"${e}\"`).join(',') +\n\
+          \            ')), osVersion, from: 0) + stringLength(osVersion) + 5) ),\
+          \ to: indexOf(toString(array(' +\n            overridesVariableArray.map(e\
+          \ => `\"${e}\"`).join(',') +\n            ')), \"}\", from: indexOf(toString(array('\
+          \ +\n            overridesVariableArray.map(e => `\"${e}\"`).join(',') +\n\
+          \            ')), osVersion, from: 0)) - 2 ), else: null ) | fieldsAdd timeBeforeObsolescence\
+          \ = toTimestamp(if(isNotNull(`Extended Support`), `Extended Support`, else:\
+          \ event.eol)) - now() | fields Host = entity.name, `Management Zones` =\
+          \ managementZones, `Tags` = tags, OS = event.os, `Running Version` = event.currentVersion,\
+          \ `Full Name` = osVersion, LTS = event.lts, Cycle = event.currentCycle,\
+          \ `Cycle Published At` = substring(event.currentCyclePublishedAt, to:10),\
+          \ `End of Life` = event.eol, `Extended Support`, `Time Before Obsolescence`\
+          \ = timeBeforeObsolescence, `Latest Version` = event.latestVersion, `Latest\
+          \ Version Published at` = substring(event.latestVersionPublishedAt, to:10),\
+          \ Link = event.link, id, key = event.key | filter `Time Before Obsolescence`\
+          \ > toDuration(-7 * 24 * 60 * 60 * 1000000000) AND `Time Before Obsolescence`\
+          \ < toDuration(90 * 24 * 60 * 60 * 1000000000) | fieldsAdd lastAlert = lookup([\
+          \ fetch events, from: -30d | filter dt.system.bucket == \"default_davis_custom_events\"\
+          \ | filter source == \"software-obsolescence-management.os-alert\" | sort\
+          \ timestamp DESC ], sourceField:id, lookupField:dt.source_entity) | limit\
+          \ 20000'\n          }\n        };\n      // console.log('DQL query:')\n\
+          \      // console.log(query);\n      let res = await queryExecutionClient.queryExecute(query);\n\
+          \      // console.log(res);\n      res = await queryExecutionClient.queryPoll({\n\
+          \        requestToken: res.requestToken,\n        requestTimeoutMilliseconds:\
+          \ 30000\n      });\n      if(res.result && res.result.records) {\n     \
+          \   console.log(\"Soon-to-be-obsolete Operating Systems pulled successfully.\"\
+          );\n        const soonObsoleteEntities = {'0': [], '30': []};\n        for(let\
+          \ entity of res.result.records) {\n          if(entity[\"Time Before Obsolescence\"\
+          ] < 0) {\n            if(alertThresholds['0']) soonObsoleteEntities['0'].push(entity);\n\
+          \          } else if(entity[\"Time Before Obsolescence\"] < 30 * 24 * 60\
+          \ * 60 * 1000000000) {\n            if(alertThresholds['30']) soonObsoleteEntities['30'].push(entity);\n\
+          \          }\n        }\n        console.log(\"Sorted soon-to-be-obsolete\
+          \ Operating Systems:\");\n        console.log(soonObsoleteEntities);\n \
+          \       // From the full list of entities that will soon be obsolete, filter\
+          \ the ones that pass the management zone and tag restrictions and build\
+          \ the corresponding events\n        const filteredEvents = [];\n       \
+          \ for(let threshold of Object.keys(soonObsoleteEntities)) {\n          if(['CUSTOM_INFO',\
+          \ 'CUSTOM_ALERT'].includes(alertThresholds[threshold])) {\n            for(let\
+          \ entity of soonObsoleteEntities[threshold]) {\n              let matchedManagementZones\
+          \ = 0;\n              for(let managementZone of entity['Management Zones'])\
+          \ if(alertManagementZoneRestrictions.includes(managementZone)) matchedManagementZones++;\n\
+          \              let matchedTags = 0;\n              for(let tag of entity['Tags'])\
+          \ if(alertTagRestrictions.includes(tag)) matchedTags++;\n              if(\n\
+          \                (alertManagementZoneRestrictions.length === 0 || matchedManagementZones\
+          \ > 0) &&\n                (alertTagRestrictions.length === 0 || matchedTags\
+          \ > 0) &&\n                ((!entity['lastAlert'] || !entity['lastAlert']['Max\
+          \ Remaining Days Before Obsolescence'] || entity['lastAlert']['key'] !==\
+          \ entity['key']) || parseInt(threshold) < parseInt(entity['lastAlert']['Max\
+          \ Remaining Days Before Obsolescence']))\n              ) {\n          \
+          \      // Clean up output before saving the event\n                delete\
+          \ entity['Management Zones'];\n                delete entity['Tags'];\n\
+          \                const id = entity['id'];\n                delete entity['id'];\n\
+          \                const host = entity['Host'];\n                delete entity['Host'];\n\
+          \                entity['Full OS Name'] = entity['Full Name'];\n       \
+          \         delete entity['Full Name'];\n                delete entity['Time\
+          \ Before Obsolescence'];\n                delete entity['lastAlert'];\n\
+          \                entity['Max Remaining Days Before Obsolescence'] = parseInt(threshold);\n\
+          \                // Remove null values in case of support override\n   \
+          \             if(entity['OS'] === null) delete entity['OS'];\n         \
+          \       if(entity['LTS'] === null) delete entity['LTS'];\n             \
+          \   if(entity['Cycle'] === null) delete entity['Cycle'];\n             \
+          \   if(entity['Latest Version Published at'] === null) delete entity['Latest\
+          \ Version Published at'];\n                if(entity['Cycle Published At']\
+          \ === null) delete entity['Cycle Published At'];\n                if(entity['Running\
+          \ Version'] === null) delete entity['Running Version'];\n              \
+          \  if(entity['Latest Version'] === null) delete entity['Latest Version'];\n\
+          \                if(entity['Link'] === null) delete entity['Link'];\n  \
+          \              if(entity['End of Life'] === null) delete entity['End of\
+          \ Life'];\n                if(entity['key'] === null) delete entity['key'];\n\
+          \                // Add source for DQL lookup on those events\n        \
+          \        entity['source'] = 'software-obsolescence-management.os-alert';\n\
+          \                const event = {\n                  title: (threshold ===\
+          \ '0' ? `${entity.OS ? entity.OS : 'OS'} ${entity['Running Version'] ? entity['Running\
+          \ Version'] : entity['Full OS Name']} is now obsolete` : `${entity.OS ?\
+          \ entity.OS : 'OS'} ${entity['Running Version'] ? entity['Running Version']\
+          \ : entity['Full OS Name']} will become obsolete within ${threshold} day${parseInt(threshold)\
+          \ > 0 ? 's' : ''}`) + ` on host ${host}`,\n                  eventType:\
+          \ alertThresholds[threshold],\n                  entitySelector: `type(HOST),entityId(${id})`,\n\
+          \                  properties: entity\n                };\n            \
+          \    filteredEvents.push(event);\n              }       \n            }\n\
+          \          }\n        }\n        console.log(\"Events for soon-to-be-obsolete\
+          \ Operating Systems that match all restrictions and were not already previously\
+          \ raised:\");\n        console.log(filteredEvents);\n        // Ingest events\
+          \ that matches all potential restrictions\n        for(let event of filteredEvents)\
+          \ {\n          try {\n            await eventsClient.createEvent({\n   \
+          \           body: event,\n            });\n            console.log(\"Event\
+          \ ingested successfully\");\n            // console.log(event);\n      \
+          \    } catch (error) {\n            console.error(\"Error ingesting event:\"\
+          );\n            console.error(error);\n          }        \n        }\n\
+          \        console.log('The obsolescence alerting worker completed')\n   \
+          \   } else {\n        throw Error(`DQL query timed out`);\n      }\n   \
+          \ } catch (error) {\n      console.error(\"Error while pulling detected\
+          \ operating systems:\", error);\n      throw error;\n    }    \n  } else\
+          \ {\n    console.log(`All alert thresholds are deactivated. The alerting\
+          \ worker will not run.`)\n  }\n}\n\n\n\nexport default async function ({\
+          \ execution_id }) {\n  const configGet = await fetch(`/platform/automation/v1/executions/${execution_id}/tasks/config/result`);\n\
+          \  const configBody = await configGet.json();\n  const alertThresholds =\
+          \ configBody['alertThresholds'];\n  const alertManagementZoneRestrictions\
+          \ = configBody['alertManagementZoneRestrictions'];\n  const alertTagRestrictions\
+          \ = configBody['alertTagRestrictions'];\n  const supportOverrides = configBody['supportOverrides'];\n\
+          \  \n  raiseProactiveAlerts(alertThresholds, supportOverrides, alertManagementZoneRestrictions,\
+          \ alertTagRestrictions);\n}"
+      action: dynatrace.automations:run-javascript
+      position:
+        x: 0
+        y: 3
+      conditions:
+        states:
+          get_os_eol_data: OK
+      description: Run custom JavaScript code.
+      predecessors:
+      - get_os_eol_data
+    get_os_eol_data:
+      name: get_os_eol_data
+      input:
+        script: "import { eventsClient } from\n'@dynatrace-sdk/client-classic-environment-v2';\n\
+          \nimport { queryExecutionClient } from \"@dynatrace-sdk/client-query\";\n\
+          \    \n//--------------------------------- ↓ Only modify the code section\
+          \ below if you fully understand how the workflow's code and dashboard's\
+          \ DQL are working together ↓ ---------------------------------\n\n\n//---------------------------------\
+          \ ↓ Utilities for refreshing OS data ↓ ---------------------------------\n\
+          \nlet eolTechnologies;\n\n// set this to a sensible value\nconst refreshInterval\
+          \ = '7d';\n\nconst osToProductSlugMap = {\n  'Red Hat Enterprise Linux Server':\
+          \ 'rhel',\n  'Red Hat Enterprise Linux Server release': 'rhel'\n};\n\nasync\
+          \ function getFreshOsData(osVersion) {\n  const cleanOsVersion = osVersion.substring(0,\
+          \ osVersion.indexOf('(') > -1 ? osVersion.indexOf('(') : osVersion.length);\n\
+          \  console.log(cleanOsVersion);\n  // Extract the build number (digits and\
+          \ dots) from any string that could be prefixed by tags or product name;\
+          \ Or after 'ver. ' for Windows.\n  let version;\n  let windows = false;\n\
+          \  if(cleanOsVersion.indexOf('ver. ') > -1) { // Windows\n    windows =\
+          \ true;\n    version = cleanOsVersion.substring(cleanOsVersion.indexOf('ver.\
+          \ ') + 5, cleanOsVersion.length);\n  } else if(cleanOsVersion.match(/\\\
+          b\\d+(\\.\\d+)*\\b/g)) {\n    version = cleanOsVersion.match(/\\b\\d+(\\\
+          .\\d+)*\\b/g)[0];\n  } else {\n    version = null;\n  }\n  console.log(version);\n\
+          \  let os;\n  if(windows) {\n    os = cleanOsVersion.substring(0, cleanOsVersion.indexOf(cleanOsVersion.match(/\\\
+          b\\d+(\\.\\d+)*\\b/g)[0]) - 1)\n  } else {\n    os = version === null ?\
+          \ cleanOsVersion : cleanOsVersion.substring(0, cleanOsVersion.indexOf(version)\
+          \ - 1);\n  }\n  console.log(os);\n  let data;\n  let matchedEolTechnologies\
+          \ = [];\n  eolTechnologies.forEach(eolTechnology => {\n    // console.log(eolTechnology);\n\
+          \    let score = 0;\n    // Add points thanks to the manual technologyToProductSlugMap\n\
+          \    if(osToProductSlugMap[os] === eolTechnology.slug) score = score + 10;\n\
+          \    // Scoring based on product slug versus os\n    if(os.toLowerCase().match(/[a-z]+/g).join('')\
+          \ === eolTechnology.slug.match(/[a-z]+/g).join('')) score = score + 10;\n\
+          \    eolTechnology.slug.split('-').forEach(eolTechSlugSection => {\n   \
+          \   if(eolTechSlugSection.length > 1) {\n        if(os.toLowerCase().split('\
+          \ ').includes(eolTechSlugSection)) score++;\n        if(os.toLowerCase().split('\
+          \ ').includes(eolTechSlugSection) && eolTechnology.slug.split('-').length\
+          \ === 1 && eolTechnologies.filter(e => e.slug.includes(eolTechSlugSection)).length\
+          \ < 3) score++;\n      }\n    });\n    // Scoring based on product name\
+          \ versus technology\n    if(eolTechnology.name && os.toLowerCase().match(/[a-z]+/g).join('')\
+          \ === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join('')) score\
+          \ = score + 10;\n    if(eolTechnology.name) {\n      eolTechnology.name.split('\
+          \ ').forEach(eolTechNameSection => {\n        eolTechNameSection = eolTechNameSection.toLowerCase();\n\
+          \        if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from')\
+          \ {\n          if(os.toLowerCase().split(' ').includes(eolTechNameSection))\
+          \ score++;\n          if(os.toLowerCase().split(' ').includes(eolTechNameSection)\
+          \ && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e\
+          \ => e.name && e.name.toLowerCase().includes(eolTechNameSection)).length\
+          \ < 3) score++;\n        }\n      });      \n    }\n    if(score > 2) {\n\
+          \      matchedEolTechnologies.push({\n        product: eolTechnology.slug,\n\
+          \        score: score\n      });\n    }\n  });\n  matchedEolTechnologies.sort(function\
+          \ (a, b) {\n    if (a.score < b.score) {\n      return 1;\n    }\n    if\
+          \ (a.score > b.score) {\n      return -1;\n    }\n    return 0;\n  });\n\
+          \  console.log(matchedEolTechnologies);\n  if(matchedEolTechnologies[0])\
+          \ {\n    try {\n      console.log('Pulling EOL API for cycle details');\n\
+          \      const apiResponse = await fetch(`https://endoflife.date/api/${matchedEolTechnologies[0].product}.json`).then((response)\
+          \ => response.json());\n      const cycles = apiResponse.result ? apiResponse.result.releases\
+          \ : apiResponse;\n      data = {\n          os: os,\n          currentVersion:\
+          \ version,\n          key: osVersion,\n          latestVersion: cycles[0].latest\
+          \ && cycles[0].latest.name ? cycles[0].latest.name : cycles[0].latest,\n\
+          \          latestVersionPublishedAt: cycles[0].latest && cycles[0].latest.date\
+          \ ? cycles[0].latest.date : cycles[0].latestReleaseDate,\n          link:\
+          \ cycles[0].latest && cycles[0].latest.link ? cycles[0].latest.link : cycles[0].link\n\
+          \        };\n      // version = version.match(/\\b\\d[\\d.]*\\d\\b/g).length\
+          \ > 0 ? version.match(/\\b\\d[\\d.]*\\d\\b/g)[0] : version; // Extrat the\
+          \ build number (digits and dots) from any string that could be prefixed\
+          \ by tags or product name; Defaults to its original value.\n      console.log(parseInt(version));\n\
+          \      console.log(parseInt(data.latestVersion));\n      if(version !==\
+          \ null) {\n        const candidateCycles = windows ? cycles.filter(e =>\
+          \ version === (e.latest && e.latest.name ? e.latest.name : e.latest)) :\
+          \ cycles.filter(e => version.substring(0, e.name ? e.name.length : e.cycle.length)\
+          \ === (e.name || e.cycle));\n        console.log(candidateCycles)\n    \
+          \    if(candidateCycles.length > 0) {\n          candidateCycles.sort(function\
+          \ (a, b) {\n            const aLen = (a.name || a.cycle).length;\n     \
+          \       const bLen = (b.name || b.cycle).length;\n            if (aLen <\
+          \ bLen) {\n              return 1;\n            }\n            if (aLen\
+          \ > bLen) {\n              return -1;\n            }\n            return\
+          \ 0;\n          });\n          const matched = candidateCycles[0];\n   \
+          \       data.currentCycle = matched.name || matched.cycle;\n          data.currentCyclePublishedAt\
+          \ = matched.releaseDate;\n          data.latestVersionInCycle = matched.latest\
+          \ && matched.latest.name ? matched.latest.name : matched.latest;\n     \
+          \     data.lts = matched.isLts !== undefined ? matched.isLts : matched.lts;\n\
+          \          data.eol = matched.eolFrom || matched.eol;\n          if (matched.eoesFrom)\
+          \ data.extendedSupport = matched.eoesFrom;\n          if (matched.extendedSupport)\
+          \ data.extendedSupport = matched.extendedSupport;\n        }        \n \
+          \     }\n    } catch(e) {\n      console.log(e);\n    }\n  }\n  return data;\n\
+          }\n\n\n\nasync function refreshOsData() {\n  //---------------------------------\
+          \ ↓ Refresh OS data ↓ ---------------------------------\n  try {\n    let\
+          \ detectedTechnologies = [];\n    // Download the full list of EOL product\
+          \ slugs\n    eolTechnologies = await fetch('https://endoflife.date/api/all.json').then((response)\
+          \ => response.json());\n    eolTechnologies = eolTechnologies.map(e => {\n\
+          \      return { slug: e };\n    });\n    // Try to augment them with the\
+          \ corresponding product name, scraping the homepage's navigation menu (product\
+          \ name is not available via API)\n    try {\n      let homepageHtml = await\
+          \ fetch('https://endoflife.date').then((response) => response.text());\n\
+          \      const regex = /<a href=\"\\/([^\"]+)\" class=\"nav-list-link\">([^<]+)<\\\
+          /a>/g;\n      const productMap = [];\n      for (const match of homepageHtml.matchAll(regex))\
+          \ {\n        if(!match[1].includes('/')) productMap.push({ slug: match[1],\
+          \ name: match[2] }); // Filter category links out\n      }\n      // console.log(productMap);\n\
+          \      eolTechnologies.forEach(e => {\n        try {\n          e.name =\
+          \ productMap.filter(el => el.slug === e.slug)[0].name;        \n       \
+          \ } catch(error) {}\n      });\n    } catch(e) {\n      console.log(`Error\
+          \ while trying to augment the technology slugs by their corresponding product\
+          \ name`);\n    }\n    // console.log(eolTechnologies);\n    try {\n    \
+          \  let res = await queryExecutionClient.queryExecute({\n        body: {\n\
+          \          query: `fetch dt.entity.host, from: -15m | fieldsAdd osVersion,\
+          \ softwareObsolescenceManagement = entity.name | summarize by:{osVersion},\
+          \ count = count() | fieldsAdd result = lookup([ fetch events, from: -${refreshInterval}\
+          \ | filter dt.system.bucket == \"default_davis_custom_events\" | filter\
+          \ event.name == \"software-obsolescence-management.os-info\" | sort timestamp\
+          \ DESC ], sourceField:osVersion, lookupField:key ) | fieldsFlatten result,\
+          \ prefix:\"event.\" | filter isNull(event.timestamp) | fieldsAdd random\
+          \ =  random() | sort random ASC | fields osVersion | limit 60`\n       \
+          \ }\n      });\n      // console.log(res);\n      const requestToken = res.requestToken;\n\
+          \      res = await queryExecutionClient.queryPoll({\n        requestToken:\
+          \ res.requestToken,\n        requestTimeoutMilliseconds: 60000\n      });\n\
+          \      if(res.result && res.result.records) {\n        console.log(\"Detected\
+          \ OS pulled successfully.\");\n        detectedTechnologies = res.result.records;\n\
+          \      } else {\n        throw Error(`DQL query timed out`);\n      }\n\
+          \    } catch (error) {\n      console.error(\"Error while pulling detected\
+          \ OS:\", error);\n      throw error;\n    }\n    for(let detectedTechnology\
+          \ of detectedTechnologies.slice(0, 60)) {\n      // console.log(detectedTechnology);\n\
+          \      if(detectedTechnology.osVersion) {\n        const technologyData\
+          \ = await getFreshOsData(detectedTechnology.osVersion);\n        if(technologyData)\
+          \ {\n          console.log(`Technology data pulled successfully for ${detectedTechnology.osVersion}`);\n\
+          \          const event = {\n            title: \"software-obsolescence-management.os-info\"\
+          ,\n            eventType: \"CUSTOM_INFO\",\n            properties: technologyData\n\
+          \          };\n          console.log(event);\n          try {\n        \
+          \    await eventsClient.createEvent({\n              body: event,\n    \
+          \        });\n            console.log(\"Event ingested successfully\");\n\
+          \            // console.log(event);\n          } catch (error) {\n     \
+          \       console.error(error)\n            console.error(\"Error ingesting\
+          \ event\");\n            // console.error(event);\n          }\n       \
+          \ } else {\n          console.error(`No technology data found for ${detectedTechnology.osVersion}`);\n\
+          \        }\n      }\n    }\n  } catch(e) {\n    console.log(e);\n  }\n}\n\
+          \n\n\nexport default async function ({ execution_id }) {\n  const configGet\
+          \ = await fetch(`/platform/automation/v1/executions/${execution_id}/tasks/config/result`);\n\
+          \  const configBody = await configGet.json();\n  const alertThresholds =\
+          \ configBody['alertThresholds'];\n  const alertManagementZoneRestrictions\
+          \ = configBody['alertManagementZoneRestrictions'];\n  const alertTagRestrictions\
+          \ = configBody['alertTagRestrictions'];\n  const supportOverrides = configBody['supportOverrides'];\n\
+          \  \n  refreshOsData();\n  console.log(`Refreshing OS Data...`);\n}"
+      action: dynatrace.automations:run-javascript
+      position:
+        x: 0
+        y: 2
+      conditions:
+        states:
+          config: OK
+      description: Run custom JavaScript code.
+      predecessors:
+      - config
+    get_library_eos_data:
+      name: get_library_eos_data
+      input:
+        script: "import { eventsClient } from\n'@dynatrace-sdk/client-classic-environment-v2';\n\
+          \nimport { queryExecutionClient } from \"@dynatrace-sdk/client-query\";\n\
+          \    \n\n//--------------------------------- ↓ Utilities for refreshing\
+          \ OS data ↓ ---------------------------------\n\nlet eolTechnologies;\n\
+          //--------------------------------- ↓ Utilities for refreshing library data\
+          \ ↓ ---------------------------------\n\nconst typePackageManagerMap = {\n\
+          \  'DOTNET': 'NUGET',\n  'NODE_JS': 'NPM',\n  'JAVA': 'MAVEN',\n  'GO':\
+          \ 'GO'\n}\n\n//--------------------------------- ↓ Only modify the code\
+          \ section below if you fully understand how the workflow's code and dashboard's\
+          \ DQL are working together ↓ ---------------------------------\n\n\n\nasync\
+          \ function getFreshLibraryData(packageManager, library, version) {\n  let\
+          \ data;\n  let releases;\n  // Try to retrieve the list of know releases\
+          \ for that library. If response is not JSON/empty, it will stop the processing\
+          \ of that library version\n  try {\n    releases = await fetch(`https://api.deps.dev/v3/systems/${packageManager}/packages/${encodeURIComponent(library)}`).then((response)\
+          \ => response.json());\n  } catch(e) {\n    console.error(`No releases data\
+          \ found for ${library}:${version}`);\n  }\n  if(releases && releases.versions\
+          \ && releases.versions.filter(e => e.isDefault === true)[0]) {\n    // console.log(releases);\n\
+          \    data = {\n      packageManager: packageManager,\n      library: library,\n\
+          \      currentVersion: version,\n      key: `${library}:${version}`\n  \
+          \  };\n    if(releases && releases.versions && releases.versions.filter(e\
+          \ => e.isDefault === true)[0].versionKey.version) data.latestStableVersion\
+          \ = releases.versions.filter(e => e.isDefault === true)[0].versionKey.version;\n\
+          \    if(releases && releases.versions && releases.versions.filter(e => e.isDefault\
+          \ === true)[0].publishedAt) data.latestStableVersionPublishedAt = releases.versions.filter(e\
+          \ => e.isDefault === true)[0].publishedAt;\n    try {\n      const versionDetails\
+          \ = await fetch(`https://api.deps.dev/v3/systems/${packageManager}/packages/${encodeURIComponent(library)}/versions/${version}`).then((response)\
+          \ => response.json());\n      // console.log(versionDetails);\n      if(versionDetails\
+          \ && versionDetails.publishedAt) data.currentVersionPublishedAt = versionDetails.publishedAt;\n\
+          \      if(versionDetails && versionDetails.links && versionDetails.links.filter(e\
+          \ => e.label === 'ORIGIN')[0]) data.link = versionDetails.links.filter(e\
+          \ => e.label === 'ORIGIN')[0].url;\n      if(versionDetails && versionDetails.licenses\
+          \ && versionDetails.licenses.length > 0) data.licenses = versionDetails.licenses.join(',\
+          \ ');\n    } catch(e) {\n    console.log(`No version details found for ${library}:${version}`);\n\
+          \    }\n    return data;\n  }\n}\n\nasync function refreshLibraryData()\
+          \ {\n  //--------------------------------- ↓ Refresh Library data ↓ ---------------------------------\n\
+          \  try {\n    let softwareComponents = [];\n    try {\n      let res = await\
+          \ queryExecutionClient.queryExecute({\n        body: {\n          query:\
+          \ 'fetch dt.entity.software_component, from: -15m | fieldsAdd softwareComponentFileName,\
+          \ softwareObsolescenceManagement = entity.name | fieldsAdd lastColonIndex\
+          \ = lastIndexOf(entity.name, \":\") | fieldsAdd Type = softwareComponentType\
+          \ | fieldsAdd Library = substring(entity.name, to:lastColonIndex) | fieldsAdd\
+          \ Version = softwareComponentVersion | fieldsAdd result = lookup([ fetch\
+          \ events, from: -7d | filter dt.system.bucket == \"default_davis_custom_events\"\
+          \ | filter event.name == \"software-obsolescence-management.library-info\"\
+          \ ], sourceField:entity.name, lookupField:key ) | fieldsFlatten result,\
+          \ prefix:\"event.\" | filter isNull(event.timestamp) | summarize by:{Type,\
+          \ Library, Version, entity.name}, count = count() | fieldsAdd random = \
+          \ random() | sort random ASC | fields Type, Library, Version, entity.name\
+          \ | limit 60'\n        }\n      });\n      // console.log(res);\n      res\
+          \ = await queryExecutionClient.queryPoll({\n        requestToken: res.requestToken,\n\
+          \        requestTimeoutMilliseconds: 60000\n      });\n      if(res.result\
+          \ && res.result.records) {\n        console.log(\"Software components pulled\
+          \ successfully.\");\n        softwareComponents = res.result.records;\n\
+          \      } else {\n        throw Error(`DQL query timed out`);\n      }\n\
+          \    } catch (error) {\n      console.error(\"Error while pulling software\
+          \ components:\", error);\n      throw error;\n    }\n    // console.log(softwareComponents);\n\
+          \    for(let softwareComponent of softwareComponents) {\n      const libraryData\
+          \ = await getFreshLibraryData(typePackageManagerMap[softwareComponent.Type],\
+          \ softwareComponent.Library, softwareComponent.Version);\n      if(libraryData)\
+          \ {\n        console.log(`Library data pulled successfully for ${softwareComponent['entity.name']}`);\n\
+          \        const event = {\n          title: \"software-obsolescence-management.library-info\"\
+          ,\n          eventType: \"CUSTOM_INFO\",\n          properties: libraryData\n\
+          \        };\n        // console.log(event);\n        try {\n          await\
+          \ eventsClient.createEvent({\n            body: event,\n          });\n\
+          \          console.log(\"Event ingested successfully\");\n          // console.log(event);\n\
+          \        } catch (error) {\n          console.error(\"Error ingesting event:\"\
+          , error);\n          // console.error(event);\n        }\n      } else {\n\
+          \        console.error(`No library data found for ${softwareComponent['entity.name']}`);\n\
+          \      }\n    }\n  } catch(e) {\n    console.log(e);\n  }\n}\n\n\nexport\
+          \ default async function ({ execution_id }) {\n  const configGet = await\
+          \ fetch(`/platform/automation/v1/executions/${execution_id}/tasks/config/result`);\n\
+          \  const configBody = await configGet.json();\n  const alertThresholds =\
+          \ configBody['alertThresholds'];\n  console.log(alertThresholds);\n  const\
+          \ alertManagementZoneRestrictions = configBody['alertManagementZoneRestrictions'];\n\
+          \  const alertTagRestrictions = configBody['alertTagRestrictions'];\n  const\
+          \ supportOverrides = configBody['supportOverrides'];\n\n  refreshLibraryData();\n\
+          \  console.log(`Refreshing Library Data...`);\n}"
+      action: dynatrace.automations:run-javascript
+      position:
+        x: -1
+        y: 2
+      conditions:
+        states:
+          config: OK
+      description: Run custom JavaScript code.
+      predecessors:
+      - config
+    get_technology_eos_data:
+      name: get_technology_eos_data
+      input:
+        script: "import { eventsClient } from\n'@dynatrace-sdk/client-classic-environment-v2';\n\
+          \nimport { queryExecutionClient } from \"@dynatrace-sdk/client-query\";\n\
+          \    \n//--------------------------------- ↓ Utilities for refreshing OS\
+          \ data ↓ ---------------------------------\n\nlet eolTechnologies;\n\n//---------------------------------\
+          \ ↓ Utilities for refreshing Technology data ↓ ---------------------------------\n\
+          \nconst technologyToProductSlugMap = {\n  'SPRING': 'spring-boot',\n  'JAVA:Oracle\
+          \ Corporation': 'oracle-jdk',\n  'JAVA:Red Hat, Inc.': 'redhat-build-of-openjdk',\n\
+          \  'JAVA:Microsoft Corporation': 'microsoft-build-of-openjdk',\n  'JAVA':\
+          \ 'openjdk-builds-from-oracle'\n};\n\n//---------------------------------\
+          \ ↓ Only modify the code section below if you fully understand how the workflow's\
+          \ code and dashboard's DQL are working together ↓ ---------------------------------\n\
+          \n//--------------------------------- ↓ Raise proactive alerts ↓ ---------------------------------\n\
+          \n\nasync function getFreshTechnologyData(technology, edition, version)\
+          \ {\n  let data;\n  let matchedEolTechnologies = [];\n  // Match the relevant\
+          \ entries from technologyToProductSlugMap based on the input technology\
+          \ and edition data\n  let technologyToProductSlugMapMatches = Object.keys(technologyToProductSlugMap).filter(e\
+          \ => `${technology}:${edition}`.startsWith(e));\n  // Sort matches by longest\
+          \ identifier (technology + edition vs only technology) first, which is considered\
+          \ a basic proxy to relevance\n  technologyToProductSlugMapMatches.sort(function\
+          \ (a, b) {\n    if (a.length < b.length) {\n      return 1;\n    }\n   \
+          \ if (a.length > b.length) {\n      return -1;\n    }\n    return 0;\n \
+          \ });\n  // console.log(technologyToProductSlugMapMatches);\n  eolTechnologies.forEach(eolTechnology\
+          \ => {\n    let score = 0;\n    // Add points thanks to the manual technologyToProductSlugMap\n\
+          \      if(technologyToProductSlugMapMatches[0] && (technologyToProductSlugMap[technologyToProductSlugMapMatches[0]]\
+          \ === eolTechnology.slug)) score = score + 10;\n    // Scoring based on\
+          \ product slug versus technology\n    if(technology.toLowerCase().match(/[a-z]+/g).join('')\
+          \ === eolTechnology.slug.match(/[a-z]+/g).join('')) score = score + 10;\n\
+          \    eolTechnology.slug.split('-').forEach(eolTechSlugSection => {\n   \
+          \   if(eolTechSlugSection.length > 1) {\n        if(technology.toLowerCase().includes(eolTechSlugSection))\
+          \ score++;\n        if(technology.toLowerCase().includes(eolTechSlugSection)\
+          \ && eolTechnology.slug.split('-').length === 1 && eolTechnologies.filter(e\
+          \ => e.slug.includes(eolTechSlugSection)).length < 3) score++;\n      }\n\
+          \    });\n    // Scoring based on product name versus technology\n    if(eolTechnology.name\
+          \ && technology.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.name.toLowerCase().match(/[a-z]+/g).join(''))\
+          \ score = score + 10;\n    if(eolTechnology.name) {\n      eolTechnology.name.split('\
+          \ ').forEach(eolTechNameSection => {\n        eolTechNameSection = eolTechNameSection.toLowerCase();\n\
+          \        if(eolTechNameSection.length > 1 && eolTechNameSection !== 'from')\
+          \ {\n          if(technology.toLowerCase().includes(eolTechNameSection))\
+          \ score++;\n          if(technology.toLowerCase().includes(eolTechNameSection)\
+          \ && eolTechnology.name.split(' ').length === 1 && eolTechnologies.filter(e\
+          \ => e.name && e.name.toLowerCase().includes(eolTechNameSection)).length\
+          \ < 3) score++;\n        }\n      });\n    }\n    if(score > 2) {\n    \
+          \  matchedEolTechnologies.push({\n        product: eolTechnology.slug,\n\
+          \        score: score\n      });\n    }\n  });\n  matchedEolTechnologies.sort(function\
+          \ (a, b) {\n    if (a.score < b.score) {\n      return 1;\n    }\n    if\
+          \ (a.score > b.score) {\n      return -1;\n    }\n    return 0;\n  });\n\
+          \  // console.log(matchedEolTechnologies);\n  if(matchedEolTechnologies[0])\
+          \ {\n    try {\n      const apiResponse = await fetch(`https://endoflife.date/api/${matchedEolTechnologies[0].product}.json`).then((response)\
+          \ => response.json());\n      const cycles = apiResponse.result ? apiResponse.result.releases\
+          \ : apiResponse;\n      if(!cycles || cycles.length === 0) throw Error(`Invalid\
+          \ endoflife.date API response`);\n      data = {\n          technology:\
+          \ technology,\n          edition: edition,\n          currentVersion: version,\n\
+          \          key: `${technology}:${edition}:${version}`,\n          latestVersion:\
+          \ cycles[0].latest && cycles[0].latest.name ? cycles[0].latest.name : cycles[0].latest,\n\
+          \          latestVersionPublishedAt: cycles[0].latest && cycles[0].latest.date\
+          \ ? cycles[0].latest.date : cycles[0].latestReleaseDate,\n          link:\
+          \ cycles[0].latest && cycles[0].latest.link ? cycles[0].latest.link : cycles[0].link\n\
+          \        };\n      version = version.match(/\\b\\d+(\\.\\d+)*\\b/g) ? version.match(/\\\
+          b\\d+(\\.\\d+)*\\b/g)[0] : null; // Extrat the build number (digits and\
+          \ dots) from any string that could be prefixed by tags or product name;\
+          \ Defaults to its original value.\n      if(version) {\n        console.log(parseInt(version));\n\
+          \        console.log(parseInt(data.latestVersion));\n        if(parseInt(version)\
+          \ > parseInt(data.latestVersion)) {\n          data = null;\n          console.warn(`Warning:\
+          \ The latest release of the retrieved EOL product is lower than the detected\
+          \ technology's current version`);\n        }\n        if(data !== null)\
+          \ {\n          const candidateCycles = cycles.filter(e => version.substring(0,\
+          \ (e.name || e.cycle).length) === (e.name || e.cycle));\n          if(candidateCycles.length\
+          \ > 0) {\n            candidateCycles.sort(function (a, b) {\n         \
+          \     const aLen = (a.name || a.cycle).length;\n              const bLen\
+          \ = (b.name || b.cycle).length;\n              if (aLen < bLen) {\n    \
+          \            return 1;\n              }\n              if (aLen > bLen)\
+          \ {\n                return -1;\n              }\n              return 0;\n\
+          \            });\n            const matched = candidateCycles[0];\n    \
+          \        data.currentCycle = matched.name || matched.cycle;\n          \
+          \  data.currentCyclePublishedAt = matched.releaseDate;\n            data.lts\
+          \ = matched.isLts !== undefined ? matched.isLts : matched.lts;\n       \
+          \     data.eol = matched.eolFrom || matched.eol;\n          }\n        }\n\
+          \      }\n    } catch(e) {\n      console.log(e);\n    }\n  }\n  return\
+          \ data;\n}\n\n//--------------------------------- ↓ Utilities for refreshing\
+          \ library data ↓ ---------------------------------\n\n\nasync function refreshTechnologyData()\
+          \ {\n  //--------------------------------- ↓ Refresh Technology data ↓ ---------------------------------\n\
+          \  try {\n    let detectedTechnologies = [];\n    // Download the full list\
+          \ of EOL product slugs\n    eolTechnologies = await fetch('https://endoflife.date/api/all.json').then((response)\
+          \ => response.json());\n    eolTechnologies = eolTechnologies.map(e => {\n\
+          \      return { slug: e };\n    });\n    // Try to augment them with the\
+          \ corresponding product name, scraping the homepage's navigation menu (product\
+          \ name is not available via API)\n    try {\n      let homepageHtml = await\
+          \ fetch('https://endoflife.date').then((response) => response.text());\n\
+          \      const regex = /<a href=\"\\/([^\"]+)\" class=\"nav-list-link\">([^<]+)<\\\
+          /a>/g;\n      const productMap = [];\n      for (const match of homepageHtml.matchAll(regex))\
+          \ {\n        if(!match[1].includes('/')) productMap.push({ slug: match[1],\
+          \ name: match[2] }); // Filter category links out\n      }\n      // console.log(productMap);\n\
+          \      eolTechnologies.forEach(e => {\n        try {\n          e.name =\
+          \ productMap.filter(el => el.slug === e.slug)[0].name;        \n       \
+          \ } catch(error) {}\n      });\n    } catch(e) {\n      console.log(`Error\
+          \ while trying to augment the technology slugs by their corresponding product\
+          \ name`);\n    }\n    // console.log(eolTechnologies);\n    try {\n    \
+          \  let res = await queryExecutionClient.queryExecute({\n        body: {\n\
+          \          query: `fetch dt.entity.process_group_instance, from: -15m |\
+          \ fieldsRename Process = entity.name | fieldsAdd softwareTechnologies, softwareObsolescenceManagement\
+          \ = Process | expand softwareTechnologies | parse softwareTechnologies,\
+          \ \"'type:' LD:Technology ',edition:' LD:Edition ',version:' LD:Version\"\
+          \ | fields Technology, Edition, Version | filter isNotNull(Technology) AND\
+          \ Technology != \"null\" | fieldsAdd key = concat(Technology, \":\", Edition,\
+          \ \":\", Version) | fieldsAdd result = lookup([ fetch events, from: -7d\
+          \ | filter dt.system.bucket == \"default_davis_custom_events\" | filter\
+          \ event.name == \"software-obsolescence-management.technology-info\" ],\
+          \ sourceField:key, lookupField:key ) | fieldsFlatten result, prefix:\"event.\"\
+          \ | filter isNull(event.timestamp) | summarize by:{Technology, Edition,\
+          \ Version, key}, count = count() | fieldsAdd random =  random() | sort random\
+          \ ASC | fields Technology, Edition, Version, key | limit 60`\n        }\n\
+          \      });\n      // console.log(res);\n      res = await queryExecutionClient.queryPoll({\n\
+          \        requestToken: res.requestToken,\n        requestTimeoutMilliseconds:\
+          \ 60000\n      });\n      if(res.result && res.result.records) {\n     \
+          \   console.log(\"Detected technologies pulled successfully.\");\n     \
+          \   detectedTechnologies = res.result.records;\n      } else {\n       \
+          \ throw Error(`DQL query timed out`);\n      }\n    } catch (error) {\n\
+          \      console.error(\"Error while pulling detected technologies:\", error);\n\
+          \      throw error;\n    }\n    for(let detectedTechnology of detectedTechnologies.slice(0,\
+          \ 60)) {\n      // console.log(detectedTechnology);\n      const technologyData\
+          \ = await getFreshTechnologyData(detectedTechnology.Technology, detectedTechnology.Edition,\
+          \ detectedTechnology.Version);\n      if(technologyData) {\n        console.log(`Technology\
+          \ data pulled successfully for ${detectedTechnology.key}`);\n        const\
+          \ event = {\n          title: \"software-obsolescence-management.technology-info\"\
+          ,\n          eventType: \"CUSTOM_INFO\",\n          properties: technologyData\n\
+          \        };\n        try {\n          await eventsClient.createEvent({\n\
+          \            body: event,\n          });\n          console.log(\"Event\
+          \ ingested successfully\");\n          // console.log(event);\n        }\
+          \ catch (error) {\n          console.error(\"Error ingesting event\");\n\
+          \          // console.error(event);\n        }\n      } else {\n       \
+          \ console.error(`No technology data found for ${detectedTechnology.key}`);\n\
+          \      }\n    }\n  } catch(e) {\n    console.log(e);\n  }\n}\n\n\n\nexport\
+          \ default async function ({ execution_id }) {\n  const configGet = await\
+          \ fetch(`/platform/automation/v1/executions/${execution_id}/tasks/config/result`);\n\
+          \  const configBody = await configGet.json();\n  const alertThresholds =\
+          \ configBody['alertThresholds'];\n  console.log(alertThresholds);\n  const\
+          \ alertManagementZoneRestrictions = configBody['alertManagementZoneRestrictions'];\n\
+          \  const alertTagRestrictions = configBody['alertTagRestrictions'];\n  const\
+          \ supportOverrides = configBody['supportOverrides'];\n  \n  refreshTechnologyData();\n\
+          \  console.log(`Refreshing Technology Data...`);\n}"
+      action: dynatrace.automations:run-javascript
+      position:
+        x: 1
+        y: 2
+      conditions:
+        states:
+          config: OK
+      description: Run custom JavaScript code.
+      predecessors:
+      - config
