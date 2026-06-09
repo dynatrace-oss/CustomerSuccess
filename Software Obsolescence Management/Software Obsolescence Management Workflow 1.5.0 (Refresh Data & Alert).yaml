@@ -3,13 +3,25 @@ metadata:
   dependencies:
     apps:
     - id: dynatrace.automations
-      version: ^1.2926.0
+      version: ^1.3074.0
   inputs: []
 workflow:
   title: Software Obsolescence Management Workflow 1.5.0 (Refresh Data & Alert)
   description: ''
   schemaVersion: 4
-  trigger: {}
+  trigger:
+    schedule:
+      isActive: true
+      trigger:
+        type: interval
+        betweenEnd: 06:00
+        betweenStart: 04:00
+        intervalMinutes: 2
+      filterParameters:
+        earliestStart: '2026-05-28'
+        earliestStartTime: '11:40'
+      timezone: UTC
+      inputs: {}
   result: null
   type: STANDARD
   input: {}
@@ -220,15 +232,15 @@ workflow:
           \ DQL are working together ↓ ---------------------------------\n\n\n//---------------------------------\
           \ ↓ Utilities for refreshing OS data ↓ ---------------------------------\n\
           \nlet eolTechnologies;\n\n// set this to a sensible value\nconst refreshInterval\
-          \ = '7d';\n\nconst osToProductSlugMap = {\n  'Red Hat Enterprise Linux\
-          \ Server': 'rhel',\n  'Red Hat Enterprise Linux Server release': 'rhel'\n\
-          };\n\nasync function getFreshOsData(osVersion) {\n  const cleanOsVersion\
-          \ = osVersion.substring(0, osVersion.indexOf('(') > -1 ? osVersion.indexOf('(')\
-          \ : osVersion.length);\n  console.log(cleanOsVersion);\n  // Extract the\
-          \ build number (digits and dots) from any string that could be prefixed\
-          \ by tags or product name; Or after 'ver. ' for Windows.\n  let version;\n\
-          \  let windows = false;\n  if(cleanOsVersion.indexOf('ver. ') > -1) { //\
-          \ Windows\n    windows = true;\n    version = cleanOsVersion.substring(cleanOsVersion.indexOf('ver.\
+          \ = '7d';\n\nconst osToProductSlugMap = {\n  'Red Hat Enterprise Linux Server':\
+          \ 'rhel',\n  'Red Hat Enterprise Linux Server release': 'rhel'\n};\n\nasync\
+          \ function getFreshOsData(osVersion) {\n  const cleanOsVersion = osVersion.substring(0,\
+          \ osVersion.indexOf('(') > -1 ? osVersion.indexOf('(') : osVersion.length);\n\
+          \  console.log(cleanOsVersion);\n  // Extract the build number (digits and\
+          \ dots) from any string that could be prefixed by tags or product name;\
+          \ Or after 'ver. ' for Windows.\n  let version;\n  let windows = false;\n\
+          \  if(cleanOsVersion.indexOf('ver. ') > -1) { // Windows\n    windows =\
+          \ true;\n    version = cleanOsVersion.substring(cleanOsVersion.indexOf('ver.\
           \ ') + 5, cleanOsVersion.length);\n  } else if(cleanOsVersion.match(/\\\
           b\\d+(\\.\\d+)*\\b/g)) {\n    version = cleanOsVersion.match(/\\b\\d+(\\\
           .\\d+)*\\b/g)[0];\n  } else {\n    version = null;\n  }\n  console.log(version);\n\
