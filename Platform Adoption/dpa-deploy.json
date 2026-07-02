@@ -1,0 +1,2195 @@
+﻿{"id":"4ff8a18a-9faf-4db3-8325-f48766108ad9","name":"Dynatrace Platform Adoption v1.4.0","type":"dashboard","isPrivate":true,"content":{
+      "annotations": [],
+      "importedWithCode": false,
+      "layouts": {
+        "0": {
+          "h": 3,
+          "w": 10,
+          "x": 14,
+          "y": 101
+        },
+        "1": {
+          "h": 3,
+          "w": 8,
+          "x": 0,
+          "y": 101
+        },
+        "activity-heatmap": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 39
+        },
+        "adoption-maturity": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 19
+        },
+        "adoption-maturity-gaps": {
+          "h": 2,
+          "w": 18,
+          "x": 6,
+          "y": 22
+        },
+        "ai-agent-activity": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 91
+        },
+        "ai-davis-analyzers": {
+          "h": 5,
+          "w": 8,
+          "x": 0,
+          "y": 96
+        },
+        "ai-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 90
+        },
+        "ai-usage-per-user": {
+          "h": 5,
+          "w": 8,
+          "x": 8,
+          "y": 96
+        },
+        "apps-2g-migration-candidates": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 63
+        },
+        "apps-2g-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 62
+        },
+        "apps-2g-usage": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 63
+        },
+        "apps-3g-ranking": {
+          "h": 6,
+          "w": 12,
+          "x": 12,
+          "y": 45
+        },
+        "apps-3g-trend": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 51
+        },
+        "apps-3g-users-per-app": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 51
+        },
+        "apps-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 44
+        },
+        "automation-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 73
+        },
+        "classic-vs-platform-api": {
+          "h": 5,
+          "w": 24,
+          "x": 0,
+          "y": 68
+        },
+        "daily-activity-trend": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 17
+        },
+        "daily-returning-users": {
+          "h": 3,
+          "w": 6,
+          "x": 6,
+          "y": 19
+        },
+        "daily-unique-users": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 14
+        },
+        "data-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 79
+        },
+        "davis-adoption-report": {
+          "h": 3,
+          "w": 12,
+          "x": 0,
+          "y": 3
+        },
+        "davis-copilot-usage": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 91
+        },
+        "dormant-users": {
+          "h": 3,
+          "w": 6,
+          "x": 18,
+          "y": 25
+        },
+        "dormant-users-assist": {
+          "h": 3,
+          "w": 8,
+          "x": 0,
+          "y": 6
+        },
+        "dql-query-volume": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 80
+        },
+        "feature-treemap": {
+          "h": 6,
+          "w": 12,
+          "x": 0,
+          "y": 45
+        },
+        "gen3-adoption-detail": {
+          "h": 5,
+          "w": 8,
+          "x": 4,
+          "y": 57
+        },
+        "gen3-adoption-pct": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 57
+        },
+        "grail-blindspot-assist": {
+          "h": 3,
+          "w": 8,
+          "x": 16,
+          "y": 6
+        },
+        "header": {
+          "h": 2,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "human-vs-automation": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 39
+        },
+        "kpi-session-depth": {
+          "h": 3,
+          "w": 6,
+          "x": 18,
+          "y": 10
+        },
+        "kpi-stickiness": {
+          "h": 3,
+          "w": 6,
+          "x": 6,
+          "y": 10
+        },
+        "kpi-total-sessions": {
+          "h": 3,
+          "w": 6,
+          "x": 12,
+          "y": 10
+        },
+        "kpi-unique-users": {
+          "h": 3,
+          "w": 6,
+          "x": 0,
+          "y": 10
+        },
+        "lifecycle-cohorts": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 25
+        },
+        "lifecycle-cohorts-assist": {
+          "h": 3,
+          "w": 8,
+          "x": 8,
+          "y": 6
+        },
+        "observability-domain-coverage": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 85
+        },
+        "peak-login-hours": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 28
+        },
+        "platform-breadth": {
+          "h": 5,
+          "w": 7,
+          "x": 12,
+          "y": 34
+        },
+        "platform-breadth-assist": {
+          "h": 3,
+          "w": 12,
+          "x": 12,
+          "y": 3
+        },
+        "platform-cost": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 85
+        },
+        "query-analytics": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 80
+        },
+        "read-write-ratio": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 57
+        },
+        "reports-section-header": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 2
+        },
+        "section-gen3-migration": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 56
+        },
+        "section-platform-breadth": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 33
+        },
+        "section-platform-health": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "section-user-activity": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 13
+        },
+        "section-user-lifecycle": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        },
+        "top-users": {
+          "h": 5,
+          "w": 8,
+          "x": 16,
+          "y": 96
+        },
+        "user-engagement-scorecard": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 34
+        },
+        "weekly-growth-trend": {
+          "h": 5,
+          "w": 5,
+          "x": 19,
+          "y": 34
+        },
+        "weekly-returning-users": {
+          "h": 3,
+          "w": 6,
+          "x": 12,
+          "y": 25
+        },
+        "workflow-health": {
+          "h": 5,
+          "w": 12,
+          "x": 0,
+          "y": 74
+        },
+        "workflow-trend": {
+          "h": 5,
+          "w": 12,
+          "x": 12,
+          "y": 74
+        },
+        "wow-summary": {
+          "h": 3,
+          "w": 12,
+          "x": 12,
+          "y": 14
+        }
+      },
+      "settings": {
+        "defaultTimeframe": {
+          "enabled": true,
+          "value": {
+            "from": "now()-30d",
+            "to": "now()"
+          }
+        }
+      },
+      "tiles": {
+        "0": {
+          "content": "About the DPA v1.4.0. It's:\n - Safe: The Dashboards app and the DTR are both restricted to read-only permissions/calls by design. No data ever leaves the Dynatrace tenant.\n - Fast: The analytics happens where the data resides, in Grail.\n - Open source: Copy, inspect, customize and share it in a few clicks.",
+          "type": "markdown"
+        },
+        "1": {
+          "content": "DPA version: 1.4.0\n- [Download latest version (public GitHub)](https://github.com/dynatrace-oss/CustomerSuccess)\n\n\nChangelog:\n- Fixed 3rd Gen Adoption Rate: now measures actual user adoption (users on Gen3 vs Classic via audit logs) instead of event proportion\n- All DQL queries inherit dashboard timeframe selector (no hardcoded timeframes on outer fetches)\n- Cross-references CLASSIC_API audit events for accurate Gen2 user identification",
+          "type": "markdown"
+        },
+        "activity-heatmap": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Platform activity spread across days of the week over the last 30 days.\n\n- Identifies peak days vs weekend drop-off\n- Consistent weekday peaks = healthy active user base\n- Use to time enablement sessions or maintenance windows\n\n\u003e Fixed 30-day window regardless of dashboard timeframe.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| fieldsAdd dow = concat(formatTimestamp(timestamp, format:\"e\"), \"-\", formatTimestamp(timestamp, format:\"E\"))\n| summarize activity = count(), by:{dow}\n| sort dow asc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Activity by Day of Week",
+          "type": "data",
+          "visualization": "categoricalBarChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false
+          }
+        },
+        "adoption-maturity": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** A composite 0-100 score measuring how broadly the platform is being used.\n\n| Dimension | Points | Threshold |\n|---|---|---|\n| Users | 25 | \u003e= 10 unique users |\n| Apps | 25 | \u003e= 5 apps used |\n| API | 25 | \u003e 100 API calls |\n| AI | 25 | \u003e 50 AI calls |\n\n\u003e **100 = full maturity.** Low scores pinpoint exactly which dimension needs attention.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| summarize uniqueUsers = countDistinct(if(`request.source` == \"BROWSER\", `user.id`, else:null)), totalApps = countDistinct(`dt.app.id`), apiCalls = countIf(`request.source` == \"OTHER\"), aiCalls = countIf(contains(toString(resource), \"/davis/\"))\n| fieldsAdd userPts = if(uniqueUsers \u003e= 10, then:25, else:uniqueUsers * 2 + 5)\n| fieldsAdd appPts = if(totalApps \u003e= 5, then:25, else:totalApps * 5)\n| fieldsAdd apiPts = if(apiCalls \u003e 100, then:25, else:if(apiCalls \u003e 0, then:15, else:0))\n| fieldsAdd aiPts = if(aiCalls \u003e 50, then:25, else:if(aiCalls \u003e 0, then:12, else:0))\n| fieldsAdd maturityScore = userPts + appPts + apiPts + aiPts\n| fields maturityScore\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Maturity Score",
+          "type": "data",
+          "visualization": "gauge",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "icon": {
+              "icon": ""
+            }
+          }
+        },
+        "adoption-maturity-gaps": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Per-dimension breakdown of the Maturity Score  - how far each of the 4 dimensions is from its target, and what action closes the gap.\n\n| Dimension | Points | Threshold |\n|---|---|---|\n| Users | 25 | \u003e= 10 unique users |\n| Apps | 25 | \u003e= 5 apps used |\n| API | 25 | \u003e 100 API calls (source: OTHER) |\n| AI | 25 | \u003e 50 AI/Davis calls |\n\n- Score bar shows current pts/25 per dimension\n- **Action column is empty when dimension is at full score**\n- Dimensions showing 0 pts = immediate enablement gap\n\n\u003e Fixed to same timeframe as the Maturity Score gauge above.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| summarize uniqueUsers = countDistinct(if(`request.source` == \"BROWSER\", `user.id`, else:null)), totalApps = countDistinct(`dt.app.id`), apiCalls = countIf(`request.source` == \"OTHER\"), aiCalls = countIf(contains(toString(resource), \"/davis/\"))\n| fieldsAdd userPts = if(uniqueUsers \u003e= 10, then:25, else:toLong(uniqueUsers) * 2 + 5)\n| fieldsAdd appPts  = if(totalApps \u003e= 5,   then:25, else:toLong(totalApps) * 5)\n| fieldsAdd apiPts  = if(apiCalls \u003e 100,   then:25, else:if(apiCalls \u003e 0, then:15, else:0))\n| fieldsAdd aiPts   = if(aiCalls \u003e 50,     then:25, else:if(aiCalls \u003e 0, then:12, else:0))\n| fieldsAdd userAction = if(userPts==25, then:\" -\", else:concat(\"Need \", toString(10 - toLong(uniqueUsers)), \" more users  - invite \u0026 run enablement sessions\"))\n| fieldsAdd appAction  = if(appPts==25,  then:\" -\", else:concat(\"Need \", toString(5 - toLong(totalApps)),  \" more apps  - drive Notebooks, Workflows, Problems\"))\n| fieldsAdd apiAction  = if(apiPts==25,  then:\" -\", else:if(apiCalls==0, then:\"No API usage detected  - set up tokens or MCP agents\", else:\"Increase to \u003e100 API calls\"))\n| fieldsAdd aiAction   = if(aiPts==25,   then:\" -\", else:if(aiCalls==0,  then:\"No AI usage detected  - enable Davis Copilot and Analyzers\", else:\"Increase to \u003e50 AI/Davis calls\"))\n| fields `Users [/25]`=userPts, `Apps [/25]`=appPts, `API [/25]`=apiPts, `AI/Davis [/25]`=aiPts, `Users - action`=userAction, `Apps - action`=appAction, `API - action`=apiAction, `AI/Davis - action`=aiAction\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Maturity Score  - Gaps \u0026 Actions",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-severe-default, #d56b1a)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Users [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Users [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 12
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Users [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 25
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-severe-default, #d56b1a)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Apps [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Apps [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 12
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "Apps [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 25
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-severe-default, #d56b1a)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "API [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "API [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 12
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "API [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 25
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-severe-default, #d56b1a)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "AI/Davis [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "AI/Davis [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 12
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "\u003e=",
+                  "field": "AI/Davis [/25]",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "number",
+                  "value": 25
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "Users - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": ""
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "=",
+                  "field": "Users - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": " -"
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "Apps - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": ""
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "=",
+                  "field": "Apps - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": " -"
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "API - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": ""
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "=",
+                  "field": "API - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": " -"
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "AI/Davis - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": ""
+                },
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "=",
+                  "field": "AI/Davis - action",
+                  "metadata": {
+                    "applyTo": "cell"
+                  },
+                  "type": "string",
+                  "value": " -"
+                }
+              ]
+            },
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "ai-agent-activity": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Top API token and service account callers accessing the platform programmatically -- not via browser or workflows.\n\n| Caller Type | Meaning |\n|---|---|\n| **User Token** | Named user accessing via personal API token or script |\n| **Service Account** | Unresolved UUID -- OAuth client, bot, or MCP agent |\n\n- **High calls + few endpoints** = automated polling or single-purpose integration\n- **High endpoint count** = broad programmatic usage -- migration script or MCP agent\n- Service accounts not resolving to email = tokens without audit trail, worth investigating\n\n\u003e `OTHER` is the correct source for all non-browser, non-workflow API access in Dynatrace.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"OTHER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [\n    fetch dt.system.events, from: now()-365d\n    | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n    | filter contains(toString(`user.email`), \"@\")\n    | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\")\n    | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\")\n    | summarize email = takeFirst(`user.email`), by:{`user.id`}\n  ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd caller = coalesce(`lu.email`, `user.id`)\n| fieldsAdd callerType = if(contains(caller, \"@\"), \"User Token\", else:\"Service Account\")\n| summarize calls = count(), endpoints = countDistinct(resource), lastActive = formatTimestamp(max(timestamp), format:\"yyyy-MM-dd\"), by:{caller, callerType}\n| sort calls desc\n| limit 20\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "External \u0026 Programmatic API Access",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "ai-davis-analyzers": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily Dynatrace Intelligence Analyzer invocations -- AI-powered root cause and anomaly detection.\n\n- Each invocation = a user or workflow triggering AI analysis\n- Growing trend = team is leaning on AIOps, not just dashboards\n- Flat or zero = opportunity to introduce Analyzers in QBRs\n\n\u003e Analyzers include: Metric Event, Log, Kubernetes, and Custom Analyzers.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter contains(resource, \"/davis/analyzer\")\n| makeTimeseries analyzerCalls = count()\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Analyzer Trend",
+          "type": "data",
+          "visualization": "lineChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "ai-section-header": {
+          "content": "### Dynatrace Intelligence\n",
+          "type": "markdown"
+        },
+        "ai-usage-per-user": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Per-user breakdown of AI feature consumption -- Dynatrace Assist interactions and Analyzer invocations.\n\n- **AI champions** = high counts across both Assist and Analyzers\n- **Zero rows** = users not yet exposed to AI features\n- Use to identify who to showcase at internal enablement sessions\n\n\u003e Cross-reference with Top 20 Power Users to find AI-engaged vs AI-absent power users.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter contains(resource, \"/davis/\")\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize aiCalls = count(), assistCalls = countIf(contains(resource, \"/copilot/\")), analyzerCalls = countIf(contains(resource, \"/analyzer\")), by:{userEmail}\n| sort aiCalls desc\n| limit 15\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "AI Usage per User",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "apps-2g-migration-candidates": {
+          "description": "**What it shows:** Users active in Classic/Gen2 during the selected timeframe who have zero activity in Gen3 -- true migration backlog.\n\n**How Classic-only is determined:**\n- Appears in Classic Audit Logs API (direct Classic UI usage)\n- Does NOT appear in Grail `dt.system.events` AUDIT_EVENT (no Gen3 platform activity)\n\n| Column | Meaning |\n|---|---|\n| **User** | Email address of the Classic-only user |\n| **Classic Actions** | Total Classic API calls in the selected timeframe |\n| **Last Activity** | Most recent Classic activity date |\n\n- API token users (UUID format) are excluded -- email addresses only\n- Hybrid users (active on both Classic and Gen3) are excluded from this list\n\n\u003e Sorted by Classic action count descending. Top users = highest-effort migration targets.\n\u003e For hybrid users, see the Gen3 Adoption Breakdown tile.",
+          "input": "import { auditLogsClient } from '@dynatrace-sdk/client-classic-environment-v2';\nimport { queryExecutionClient } from '@dynatrace-sdk/client-query';\n\nexport default async function () {\n  // Step 1: Collect Classic users from Classic Audit Logs API\n  const classicUsers: Record\u003cstring, { actions: number; lastActivity: number }\u003e = {};\n  let nextPageKey: string | undefined = undefined;\n\n  do {\n    const params: Record\u003cstring, unknown\u003e = nextPageKey\n      ? { nextPageKey }\n      : { from: $dt_timeframe_from, to: $dt_timeframe_to, sort: '-timestamp', pageSize: 5000 };\n\n    const response = await auditLogsClient.getLogs(params as any);\n\n    if (response.auditLogs) {\n      for (const entry of response.auditLogs) {\n        if (\n          entry.user \u0026\u0026\n          entry.user !== 'system' \u0026\u0026\n          entry.user !== 'UNKNOWN' \u0026\u0026\n          entry.user.includes('@') \u0026\u0026\n          !entry.user.includes('@heimdall.dynatrace.com') \u0026\u0026\n          !entry.user.includes('@service.sso.dynatrace.com')\n        ) {\n          const u = entry.user.toLowerCase();\n          if (!classicUsers[u]) classicUsers[u] = { actions: 0, lastActivity: 0 };\n          classicUsers[u].actions++;\n          const ts = typeof entry.timestamp === 'number' ? entry.timestamp : 0;\n          if (ts \u003e classicUsers[u].lastActivity) classicUsers[u].lastActivity = ts;\n        }\n      }\n    }\n    nextPageKey = response.nextPageKey ?? undefined;\n  } while (nextPageKey);\n\n  // Step 2: Get Gen3 active users from Grail\n  const now = new Date();\n  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);\n\n  const dql = `fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter \\`request.source\\` == \"BROWSER\"\n| filter \\`user.id\\` != \"UNKNOWN\" AND \\`user.id\\` != \"system\"\n| lookup [fetch dt.system.events | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(\\`user.email\\`), \"@\") | filter NOT contains(toString(\\`user.email\\`), \"@heimdall.dynatrace.com\") | summarize email = takeFirst(\\`user.email\\`), by: {\\`user.id\\`}], sourceField:\\`user.id\\`, lookupField:\\`user.id\\`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(\\`lu.email\\`, \\`user.id\\`)\n| filter contains(userEmail, \"@\")\n| summarize gen3Users = collectArray(lower(userEmail)), by:{}\n| fields gen3Users`;\n\n  const queryResult = await queryExecutionClient.queryExecute({\n    body: {\n      query: dql,\n      requestTimeoutMilliseconds: 60000,\n      defaultTimeframeStart: thirtyDaysAgo.toISOString(),\n      defaultTimeframeEnd: now.toISOString()\n    }\n  });\n\n  // Step 3: Build Gen3 user set\n  const gen3Set = new Set\u003cstring\u003e();\n  if (queryResult.result?.records?.[0]) {\n    const record = queryResult.result.records[0] as Record\u003cstring, unknown\u003e;\n    const userList = record.gen3Users as string[];\n    if (userList) {\n      for (const u of userList) gen3Set.add(u.toLowerCase());\n    }\n  }\n\n  // Step 4: Classic-only = in Classic logs AND NOT in Gen3 Grail\n  const classicOnly = Object.entries(classicUsers)\n    .filter(([user]) =\u003e !gen3Set.has(user))\n    .map(([user, data]) =\u003e ({\n      'User': user,\n      'Classic Actions': data.actions,\n      'Last Activity': data.lastActivity \u003e 0\n        ? new Date(data.lastActivity).toISOString().split('T')[0]\n        : 'Unknown'\n    }))\n    .sort((a, b) =\u003e b['Classic Actions'] - a['Classic Actions'])\n    .slice(0, 25);\n\n  return classicOnly.length \u003e 0\n    ? classicOnly\n    : [{ 'User': 'No Classic-only users found', 'Classic Actions': 0, 'Last Activity': '-' }];\n}",
+          "title": "Classic-Only Users (Migration Backlog)",
+          "type": "code",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false
+          }
+        },
+        "apps-2g-section-header": {
+          "content": "### Legacy (2nd Generation) Apps\n",
+          "type": "markdown"
+        },
+        "apps-2g-usage": {
+          "description": "**What it shows:** Classic/Gen2 feature activity still occurring in the selected timeframe.\n\n- Each row = a Classic feature surface that users are still touching\n- **High and flat** = adoption blocker, likely missing Gen3 feature parity\n- **Declining trend** = healthy migration signal\n\n\u003e Use alongside Migration Candidates to answer: what are Classic users doing, and who is doing it-",
+          "input": "import { auditLogsClient } from '@dynatrace-sdk/client-classic-environment-v2';\n\nexport default async function () {\n  const categoryMap: Record\u003cstring, number\u003e = {};\n  let nextPageKey: string | undefined = undefined;\n\n  do {\n    const params: Record\u003cstring, unknown\u003e = nextPageKey\n      ? { nextPageKey }\n      : { from: $dt_timeframe_from, to: $dt_timeframe_to, sort: '-timestamp', pageSize: 5000 };\n\n    const response = await auditLogsClient.getLogs(params as any);\n\n    if (response.auditLogs) {\n      for (const entry of response.auditLogs) {\n        if (entry.user \u0026\u0026 entry.user !== 'system' \u0026\u0026 entry.user !== 'UNKNOWN' \u0026\u0026\n            !entry.user.includes('@heimdall.dynatrace.com') \u0026\u0026\n            !entry.user.includes('@service.sso.dynatrace.com')) {\n          const cat = entry.category || 'UNKNOWN';\n          categoryMap[cat] = (categoryMap[cat] || 0) + 1;\n        }\n      }\n    }\n    nextPageKey = response.nextPageKey ?? undefined;\n  } while (nextPageKey);\n\n  const results = Object.entries(categoryMap)\n    .map(([feature, hits]) =\u003e ({ Feature: feature, Hits: hits }))\n    .sort((a, b) =\u003e b.Hits - a.Hits);\n\n  return results.length \u003e 0 ? results : [{ Feature: 'No legacy activity', Hits: 0 }];\n}",
+          "title": "Legacy Feature Usage",
+          "type": "code",
+          "visualization": "donutChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "right"
+              }
+            },
+            "legend": {
+              "ratio": 23
+            }
+          }
+        },
+        "apps-3g-ranking": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** 3rd Gen apps ranked by total userActions, unique users, and userSessions.\n\n- Top apps = most-adopted Gen3 capabilities\n- Low-ranked apps = underutilized, potential enablement opportunity\n- Compare user count vs action count: high actions/low users = power user concentration\n\n\u003e Use this in QBRs to show which Dynatrace apps the team has embraced.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter isNotNull(`dt.app.id`)\n| filter `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize userActions = count(), uniqueUsers = countDistinct(userEmail), userSessions = countDistinct(`origin.session`), by:{`dt.app.id`}\n| sort userActions desc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "App Ranking",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "apps-3g-trend": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily stacked area chart of Gen3 app visits over time.\n\n- Rising stack = overall Gen3 adoption growing\n- One app dominating = narrow adoption, breadth gap\n- Shrinking app = feature abandoned or superseded\n\n\u003e Pair with App Ranking to see both volume and trend in context.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter isNotNull(`dt.app.id`)\n| filter `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n| makeTimeseries visits = count(), by:{`dt.app.id`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "App Usage Trend",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "apps-3g-users-per-app": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily unique users per Gen3 app -- measures audience breadth, not just click volume.\n\n- Distinguishes growing audience from one person clicking a lot\n- Flat user count with rising actions = same users going deeper\n- Declining users = churn risk for that app\n\n\u003e Use to identify apps that need broader enablement vs deeper feature training.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter isNotNull(`dt.app.id`)\n| filter `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| makeTimeseries uniqueUsers = countDistinct(userEmail), by:{`dt.app.id`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Users per App (Trend)",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            },
+            "legend": {
+              "ratio": 18
+            }
+          }
+        },
+        "apps-section-header": {
+          "content": "### Platform Apps \u0026mdash; 3rd Generation\n",
+          "type": "markdown"
+        },
+        "automation-section-header": {
+          "content": "### Automation \u0026 Workflows\n",
+          "type": "markdown"
+        },
+        "classic-vs-platform-api": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily trend of Platform API (Gen3 API_GATEWAY) vs Classic API calls.\n\n- **Target state:** Classic line at zero, Platform line growing\n- Crossing point = migration tipping point\n- Classic holding flat = API integrations not yet modernised\n\n\u003e Classic API calls often come from scripts, CI/CD, or integrations -- not just human users. Check with the admin team if Classic stays flat.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\" OR event.provider == \"CLASSIC_API\"\n| makeTimeseries platform = countIf(event.provider == \"API_GATEWAY\"), classic = countIf(event.provider == \"CLASSIC_API\")\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Platform vs Classic API Migration",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "daily-activity-trend": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily total event volume split by source type.\n\n| Source | Meaning |\n|---|---|\n| `BROWSER` | Human interactive sessions |\n| `DT_SERVERLESS` | Workflows and automation |\n| `OTHER` | API tokens and integrations |\n\n\u003e A healthy platform shows all three growing. Heavy `OTHER` with low `BROWSER` = automation-heavy, human adoption lagging.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| makeTimeseries total = count(), by:{`request.source`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Daily Activity by Source",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "daily-returning-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Users active on 2 or more distinct days in the last 7 days.\n\n- Measures habit formation -- not just one-off visits\n- Rising = platform becoming part of daily workflow\n- Falling = users logging in occasionally but not regularly\n\n\u003e Fixed 7-day window always. Not affected by dashboard timeframe selector.",
+          "query": "fetch dt.system.events, from: now()-7d\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-7d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| fieldsAdd day = formatTimestamp(timestamp, format:\"yyyy-MM-dd\")\n| summarize activeDays = countDistinct(day), by:{userEmail}\n| filter activeDays \u003e= 2\n| summarize returningUsers = count()\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Returning Users (2+ days active)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "singleValue": {
+              "isIconVisible": true,
+              "label": "2+ days active",
+              "labelMode": "none",
+              "prefixIcon": "AccountFilledIcon",
+              "recordField": "returningUsers"
+            }
+          }
+        },
+        "daily-unique-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Distinct active users per day -- the primary adoption trend indicator.\n\n- Sustained upward slope = healthy organic growth\n- Flat = plateau, needs enablement push\n- Sharp drop = investigate -- could be an outage, holiday, or user churn\n\n\u003e This is the first metric to show in any customer adoption conversation.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| makeTimeseries uniqueUsers = countDistinct(userEmail)\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Daily Active Users",
+          "type": "data",
+          "visualization": "lineChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "data-section-header": {
+          "content": "### Data \u0026 Query Analytics\n",
+          "type": "markdown"
+        },
+        "davis-adoption-report": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** An AI-generated adoption report created by Dynatrace Assist using live dashboard data.\n\n**How to use:**\n1. Click the more-options icon on the prompt cell, or right-click on the prompt cell where the prompt is displayed\n2. Select **Open with \u003e Ask Dynatrace Assist a question**\n3. Wait ~60 seconds for the full report\n\n\u003e Set the dashboard timeframe to Last 30 days for the default month-over-month view.\n\u003e Trigger from the prompt cell at the bottom of this tile -- not the header cell.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [\n    fetch dt.system.events, from: now()-365d\n    | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n    | filter contains(toString(`user.email`),\"@\")\n    | filter NOT contains(toString(`user.email`),\"@heimdall.dynatrace.com\")\n    | filter NOT contains(toString(`user.email`),\"@service.sso.dynatrace.com\")\n    | summarize email=takeFirst(`user.email`), by:{`user.id`}\n  ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize sessions=countDistinct(`origin.session`), by:{userEmail}\n| summarize users=countDistinct(userEmail), sessions=sum(sessions)\n| fieldsAdd join=1\n| join on:{join}, prefix:{\"trend.\"}, [\n    fetch dt.system.events, from: now()-60d, to: now()-30d\n    | filter event.kind == \"AUDIT_EVENT\"\n    | filter event.provider == \"API_GATEWAY\"\n    | filter `request.source` == \"BROWSER\"\n    | filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n    | lookup [\n        fetch dt.system.events, from: now()-365d\n        | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n        | filter contains(toString(`user.email`),\"@\")\n        | filter NOT contains(toString(`user.email`),\"@heimdall.dynatrace.com\")\n        | filter NOT contains(toString(`user.email`),\"@service.sso.dynatrace.com\")\n        | summarize email=takeFirst(`user.email`), by:{`user.id`}\n      ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n    | fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n    | summarize sessions=countDistinct(`origin.session`), by:{userEmail}\n    | summarize users=countDistinct(userEmail), sessions=sum(sessions)\n    | fieldsAdd join=1\n]\n| fieldsAdd MoM_users=round(((toDouble(users)-toDouble(trend.users))/toDouble(trend.users))*100, decimals:1),\n            MoM_sessions=round(((toDouble(sessions)-toDouble(trend.sessions))/toDouble(trend.sessions))*100, decimals:1)\n| fieldsRemove trend.join\n| join on:{join}, prefix:{\"app_adoption.\"}, [\n    fetch dt.system.events\n    | filter event.kind == \"AUDIT_EVENT\"\n    | filter event.provider == \"API_GATEWAY\"\n    | filter `request.source` == \"BROWSER\"\n    | filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n    | filter isNotNull(`dt.app.id`) AND `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n    | lookup [\n        fetch dt.system.events, from: now()-365d\n        | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n        | filter contains(toString(`user.email`),\"@\")\n        | filter NOT contains(toString(`user.email`),\"@heimdall.dynatrace.com\")\n        | filter NOT contains(toString(`user.email`),\"@service.sso.dynatrace.com\")\n        | summarize email=takeFirst(`user.email`), by:{`user.id`}\n      ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n    | fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n    | summarize sessions=countDistinct(`origin.session`), users=countDistinct(userEmail), latest_activity=formatTimestamp(takeFirst(timestamp),format:\"MM-dd-yyyy\"), by:{app=`dt.app.id`}\n    | join on:{app}, prefix:\"trend.\", [\n        fetch dt.system.events, from: now()-60d, to: now()-30d\n        | filter event.kind == \"AUDIT_EVENT\"\n        | filter event.provider == \"API_GATEWAY\"\n        | filter `request.source` == \"BROWSER\"\n        | filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n        | filter isNotNull(`dt.app.id`) AND `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n        | lookup [\n            fetch dt.system.events, from: now()-365d\n            | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n            | filter contains(toString(`user.email`),\"@\")\n            | filter NOT contains(toString(`user.email`),\"@heimdall.dynatrace.com\")\n            | filter NOT contains(toString(`user.email`),\"@service.sso.dynatrace.com\")\n            | summarize email=takeFirst(`user.email`), by:{`user.id`}\n          ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n        | fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n        | summarize sessions=countDistinct(`origin.session`), users=countDistinct(userEmail), by:{app=`dt.app.id`}\n    ]\n    | fieldsAdd MoM_users=round(((toDouble(users)-toDouble(trend.users))/toDouble(trend.users))*100, decimals:1),\n                MoM_sessions=round(((toDouble(sessions)-toDouble(trend.sessions))/toDouble(trend.sessions))*100, decimals:1)\n    | fieldsRemove trend.app\n    | summarize data=collectArray(record(app, MoM_users, MoM_sessions, users, sessions, latest_activity, trend.users, trend.sessions))\n    | fieldsAdd join=1\n]\n| join on:{join}, prefix:{\"top_users.\"}, [\n    fetch dt.system.events\n    | filter event.kind == \"AUDIT_EVENT\"\n    | filter event.provider == \"API_GATEWAY\"\n    | filter `request.source` == \"BROWSER\"\n    | filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n    | lookup [\n        fetch dt.system.events, from: now()-365d\n        | filter event.kind == \"QUERY_EXECUTION_EVENT\"\n        | filter contains(toString(`user.email`),\"@\")\n        | filter NOT contains(toString(`user.email`),\"@heimdall.dynatrace.com\")\n        | filter NOT contains(toString(`user.email`),\"@service.sso.dynatrace.com\")\n        | summarize email=takeFirst(`user.email`), by:{`user.id`}\n      ], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n    | fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n    | summarize sessions=countDistinct(`origin.session`), total=count(), last_activity=formatTimestamp(takeFirst(timestamp),format:\"MM-dd-yyyy\"), by:{userEmail}\n    | sort sessions desc\n    | limit 5\n    | summarize data=collectArray(record(user=userEmail, sessions, actions=total, last_activity_date=last_activity))\n    | fieldsAdd join=1\n]\n| fields users, sessions, MoM_users, MoM_sessions, trend.users, trend.sessions, app_adoption=app_adoption.data, top_users=top_users.data, join\n| fieldsAdd\n    prompt=concat(\"Analyze the Dynatrace Platform Adoption data provided and generate a comprehensive platform adoption report covering user engagement, app adoption trends, month-over-month momentum, risk assessment, and actionable next steps.\"),\n    execute=true,\n    contexts=array(\n      record(\n        type=\"supplementary\",\n        value=toString(record(users, sessions, MoM_users, MoM_sessions, trend.users, trend.sessions, app_adoption, top_users))\n      ),\n      record(\n        type=\"instruction\",\n        value=\"RULES: Reference ONLY the data provided. Never hallucinate. If a value is 0 say No activity recorded. The users and sessions fields are the current period totals; trend.users and trend.sessions are the previous 30-day period; MoM_users and MoM_sessions are month-over-month percent change. app_adoption is an array of per-app adoption records keyed by app id. top_users is the top 5 users by session count. OUTPUT clean Markdown with ALL sections: (1) Executive Summary 200 words with health verdict Healthy or At Risk or Critical, adoption momentum, sessions per user ratio, biggest risk or opportunity. (2) Platform Health Scorecard as a table with columns Metric, Current, Previous Period, MoM Change percent, Status. Rows for Total Users, Total Sessions, Avg Sessions per User. Status use green for growing or stable, yellow for declining 1-20 percent, red for declining over 20 percent or zero. (3) App Adoption Deep Dive using app_adoption data, a table sorted by sessions descending with columns App Id, Users, Sessions, MoM Users percent, MoM Sessions percent, Last Active. Identify top 3 growing apps, top 3 declining apps, and any abandoned apps. (4) User Engagement Analysis using top_users data, a table with columns User, Sessions, Actions, Last Active. Then Engagement Segments counting Power Users over 20 sessions listing names, Regular 5-20 count, Light under 5 as churn risk. (5) Risk Register ranked High Medium Low covering engagement decline, feature abandonment, and concentration risk with evidence and mitigation for each. (6) Recommended Actions prioritized P1 P2 P3 naming specific users to engage, enablement gaps, growth apps to promote, and quick wins, with relevant Dynatrace documentation links. (7) 30-Day Forecast projecting next month user count and session count based on current momentum, with confidence level and key assumptions. Keep the tone executive and concise.\"\n      )\n    )\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Platform Adoption Report (Dynatrace Assist)",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-info-default, #134fc9)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "prompt",
+                  "metadata": {
+                    "applyTo": "row"
+                  },
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            },
+            "table": {
+              "columnTypeOverrides": [
+                {
+                  "disableRemoval": true,
+                  "fields": [
+                    "content"
+                  ],
+                  "id": 1779342291752,
+                  "value": "log-content"
+                }
+              ],
+              "hiddenColumns": [
+                [
+                  "users"
+                ],
+                [
+                  "sessions"
+                ],
+                [
+                  "classic_sessions"
+                ],
+                [
+                  "new_sessions"
+                ],
+                [
+                  "classic_user"
+                ],
+                [
+                  "new_user"
+                ],
+                [
+                  "MoM_users"
+                ],
+                [
+                  "MoM_sessions"
+                ],
+                [
+                  "MoM_classic_users"
+                ],
+                [
+                  "MoM_new_users"
+                ],
+                [
+                  "MoM_classic_sessions"
+                ],
+                [
+                  "MoM_new_sessions"
+                ],
+                [
+                  "trend.users"
+                ],
+                [
+                  "trend.sessions"
+                ],
+                [
+                  "app_adoption"
+                ],
+                [
+                  "top_users"
+                ],
+                [
+                  "join"
+                ],
+                [
+                  "execute"
+                ],
+                [
+                  "contexts"
+                ]
+              ],
+              "hideColumnsForLargeResults": false,
+              "linewrapEnabled": true,
+              "monospacedFontColumns": [
+                [
+                  "prompt"
+                ]
+              ],
+              "monospacedFontEnabled": true,
+              "sortBy": [
+                {
+                  "columnId": "[\"prompt\"]",
+                  "direction": "ascending"
+                }
+              ]
+            }
+          }
+        },
+        "davis-copilot-usage": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily Dynatrace Assist interactions split by access source.\n\n| Source | Meaning |\n|---|---|\n| `BROWSER` | Users chatting with Assist in the UI |\n| `DT_SERVERLESS` | Assist invoked from a Workflow |\n| `API` | External tools, MCP integrations |\n\n\u003e Growing `BROWSER` volume = users self-serving with AI. Introduce Assist in the next enablement session if this is flat.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter contains(resource, \"/davis/copilot/\")\n| makeTimeseries davisUsage = count(), by:{`request.source`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Dynatrace Assist Usage",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "dormant-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Users who were active in the last 30 days but have not been seen in the last 14 days.\n\n- These are churn-risk users -- still recent enough to re-engage\n- High count = engagement drop, worth a proactive check-in\n- Cross-reference with Top 20 Power Users -- a power user going dormant is a red flag\n\n\u003e Fixed 30-day lookback. Not affected by dashboard timeframe selector.",
+          "query": "fetch dt.system.events, from: now()-30d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize lastSeen = max(timestamp), by:{userEmail}\n| filter lastSeen \u003c now()-14d\n| summarize dormantUsers = count()\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Dormant Users (Inactive last 14d+)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "singleValue": {
+              "isIconVisible": true,
+              "labelMode": "none",
+              "prefixIcon": "CriticalIcon",
+              "recordField": "dormantUsers"
+            }
+          }
+        },
+        "dormant-users-assist": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            }
+          },
+          "description": "**What it shows:** Dynatrace Assist re-engagement plan for users inactive 14+ days.\n\n**How to use:**\n1. Click the more-options icon on the prompt cell, or right-click on the prompt cell where the prompt is displayed\n2. Select **Open with \u003e Ask Dynatrace Assist a question**\n3. Wait ~30-60 seconds for the full report\n\n**Report covers:**\n- Risk-rated dormant user table (HIGH / MEDIUM by days inactive)\n- Top 5 re-engagement targets with personalised outreach suggestion\n- Ready-to-send re-engagement email template\n- Root cause hypotheses for why users went quiet\n- DQL query to monitor dormant users going forward\n\n\u003e Fixed 30-day lookback. Top 100 dormant users by days inactive passed to Assist.",
+          "query": "fetch dt.system.events, from: now()-30d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = takeFirst(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd displayName = coalesce(`lu.email`, `user.id`)\n| summarize lastSeen = max(timestamp), totalActions = count(), by:{`user.id`, displayName}\n| filter lastSeen \u003c now()-14d\n| fieldsAdd daysDormant = round(toDouble(now() - lastSeen) / 86400000000000.0, decimals:0)\n| fieldsAdd lastSeenDate = formatTimestamp(lastSeen, format:\"yyyy-MM-dd\")\n| sort daysDormant desc\n| limit 100\n| summarize userData = collectArray(record(user=displayName, daysDormant=daysDormant, lastSeen=lastSeenDate, totalActions=totalActions)), dormantCount = count(), by:{}\n| fieldsAdd\n    prompt = concat(\"Analyze these \", toString(dormantCount), \" dormant Dynatrace platform users (inactive for 14+ days within the last 30 days). Generate a re-engagement plan.\\n\\nOUTPUT the following sections:\\n1. Dormant User Table: User | Days Dormant | Last Seen | Total Actions | Risk Level\\n   Mark HIGH risk if dormant 21+ days, MEDIUM if 15-20 days\\n2. Top 5 High-Priority Re-engagement Targets (named users with personalised outreach suggestion)\\n3. Re-engagement Email Template: a short, friendly 3-sentence re-engagement email to send to dormant users\\n4. Root Cause Hypotheses: 3 likely reasons why these users went quiet\\n5. DQL Query to monitor dormant users going forward (as a fenced dql code block)\"),\n    execute = true,\n    contexts = array(\n      record(type=\"supplementary\", value=toString(record(dormantCount, userData))),\n      record(type=\"instruction\", value=\"RULES: Reference ONLY the data. Never invent users or counts. Output clean Markdown with headers and tables. UUID-format users = anonymous. Always include the DQL query section at the end.\")\n    )\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Dormant Users Re-engagement (Dynatrace Assist)",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-severe-default, #d56b1a)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "prompt",
+                  "metadata": {
+                    "applyTo": "row"
+                  },
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            },
+            "table": {
+              "hiddenColumns": [
+                [
+                  "userData"
+                ],
+                [
+                  "dormantCount"
+                ],
+                [
+                  "execute"
+                ],
+                [
+                  "contexts"
+                ]
+              ],
+              "hideColumnsForLargeResults": false,
+              "linewrapEnabled": true,
+              "monospacedFontColumns": [
+                [
+                  "prompt"
+                ]
+              ],
+              "monospacedFontEnabled": true
+            }
+          }
+        },
+        "dql-query-volume": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily DQL query executions by real users -- excludes system and service accounts.\n\n- Growing volume = team using Grail for self-service analytics\n- Flat or zero = users relying only on pre-built dashboards, not exploring data themselves\n- Pair with Query Activity by Table to see what they are querying\n\n\u003e DQL adoption is a strong indicator of platform depth -- not just breadth.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"QUERY_EXECUTION_EVENT\"\n| filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\")\n| filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\")\n| filter contains(toString(`user.email`), \"@\")\n| makeTimeseries queries = count()\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "DQL Query Volume",
+          "type": "data",
+          "visualization": "lineChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "feature-treemap": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Visual map of Gen3 app usage where block size = interaction volume.\n\n- **Large block** = heavily used, well-adopted\n- **Small block** = underutilised, potential enablement target\n- `appshell` and `launcher` navigation noise is excluded\n\n\u003e Use this in executive slides -- it is immediately readable without explanation.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter isNotNull(`dt.app.id`)\n| filter `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n| summarize usage = count(), uniqueUsers = countDistinct(`user.id`), by:{`dt.app.id`}\n| sort usage desc\n| limit 25\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Feature Usage Map",
+          "type": "data",
+          "visualization": "treemap",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "legend": {
+              "showLegend": false
+            }
+          }
+        },
+        "gen3-adoption-detail": {
+          "description": "**What it shows:** User breakdown into three migration categories.\n\n| Category | Definition |\n|---|---|\n| **Gen3 Only** | Active exclusively in 3rd Gen apps |\n| **Hybrid (Both)** | Active in both Classic and Gen3 |\n| **Classic Only** | No Gen3 activity detected |\n\n\u003e Hybrid users are migration in progress -- not complete. Classic Only users are your migration backlog.\n\u003e Cross-reference with Migration Candidates for the exact user list.",
+          "input": "import { auditLogsClient } from '@dynatrace-sdk/client-classic-environment-v2';\nimport { queryExecutionClient } from '@dynatrace-sdk/client-query';\n\nexport default async function () {\n  // Step 1: Get Classic/Gen2 users via audit logs\n  const classicUsers = new Set\u003cstring\u003e();\n  let nextPageKey: string | undefined = undefined;\n\n  do {\n    const params: Record\u003cstring, unknown\u003e = nextPageKey\n      ? { nextPageKey }\n      : { from: $dt_timeframe_from, to: $dt_timeframe_to, sort: '-timestamp', pageSize: 5000 };\n\n    const response = await auditLogsClient.getLogs(params as any);\n\n    if (response.auditLogs) {\n      for (const entry of response.auditLogs) {\n        if (entry.user \u0026\u0026\n            entry.user !== 'system' \u0026\u0026\n            entry.user !== 'UNKNOWN' \u0026\u0026\n            !entry.user.includes('@heimdall.dynatrace.com') \u0026\u0026\n            !entry.user.includes('@service.sso.dynatrace.com')) {\n          classicUsers.add(entry.user);\n        }\n      }\n    }\n    nextPageKey = response.nextPageKey ?? undefined;\n  } while (nextPageKey);\n\n  // Step 2: Get Gen3 users from Grail\n  const now = new Date();\n  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);\n\n  const dql = `fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter \\`request.source\\` == \"BROWSER\"\n| filter \\`user.id\\` != \"UNKNOWN\" AND \\`user.id\\` != \"system\"\n| filter isNotNull(\\`dt.app.id\\`) AND \\`dt.app.id\\` != \"dynatrace.appshell\" AND \\`dt.app.id\\` != \"dynatrace.launcher\"\n| lookup [fetch dt.system.events | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(\\`user.email\\`), \"@\") | filter NOT contains(toString(\\`user.email\\`), \"@heimdall.dynatrace.com\") | summarize email = first(\\`user.email\\`), by: {\\`user.id\\`}], sourceField:\\`user.id\\`, lookupField:\\`user.id\\`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(\\`lu.email\\`, \\`user.id\\`)\n| summarize gen3UsersList = collectArray(userEmail), by:{}\n| fields gen3UsersList`;\n\n  const queryResult = await queryExecutionClient.queryExecute({\n    body: {\n      query: dql,\n      requestTimeoutMilliseconds: 60000,\n      defaultTimeframeStart: thirtyDaysAgo.toISOString(),\n      defaultTimeframeEnd: now.toISOString()\n    }\n  });\n\n  const gen3Users = new Set\u003cstring\u003e();\n  if (queryResult.result?.records?.[0]) {\n    const record = queryResult.result.records[0] as Record\u003cstring, unknown\u003e;\n    const userList = record.gen3UsersList as string[];\n    if (userList) {\n      for (const u of userList) {\n        gen3Users.add(u);\n      }\n    }\n  }\n\n  // Step 3: Calculate adoption categories\n  const allUsers = new Set([...classicUsers, ...gen3Users]);\n  let gen3Only = 0;\n  let hybrid = 0;\n  let classicOnly = 0;\n\n  for (const user of allUsers) {\n    const isGen3 = gen3Users.has(user);\n    const isClassic = classicUsers.has(user);\n    if (isGen3 \u0026\u0026 !isClassic) gen3Only++;\n    else if (isGen3 \u0026\u0026 isClassic) hybrid++;\n    else classicOnly++;\n  }\n\n  const totalUsers = allUsers.size;\n  const adoptedGen3 = gen3Only + hybrid;\n\n  return [\n    { Category: \"Gen3 Only\", Users: gen3Only },\n    { Category: \"Hybrid (Both)\", Users: hybrid },\n    { Category: \"Classic Only\", Users: classicOnly }\n  ];\n}",
+          "title": "Gen3 Adoption Breakdown",
+          "type": "code",
+          "visualization": "pieChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "right"
+              }
+            },
+            "legend": {
+              "ratio": 22
+            }
+          }
+        },
+        "gen3-adoption-pct": {
+          "description": "**What it shows:** Weighted Gen3 adoption rate across all known users.\n\n**Formula:**\n```\nAdoption % = (pure Gen3 users + 0.5 x hybrid users) / total users x 100\n```\n\n| User type | Weight |\n|---|---|\n| Pure Gen3 (no Classic activity) | 1.0 |\n| Hybrid (both Classic + Gen3) | 0.5 |\n| Classic Only | 0 |\n\n\u003e Hybrid users count as half -- they have not fully migrated. A score of 100% means every user is exclusively on Gen3.",
+          "input": "import { auditLogsClient } from '@dynatrace-sdk/client-classic-environment-v2';\nimport { queryExecutionClient } from '@dynatrace-sdk/client-query';\n\nexport default async function () {\n  // Step 1: Get Classic/Gen2 users via audit logs\n  const classicUsers = new Set\u003cstring\u003e();\n  let nextPageKey: string | undefined = undefined;\n\n  do {\n    const params: Record\u003cstring, unknown\u003e = nextPageKey\n      ? { nextPageKey }\n      : { from: $dt_timeframe_from, to: $dt_timeframe_to, sort: '-timestamp', pageSize: 5000 };\n\n    const response = await auditLogsClient.getLogs(params as any);\n\n    if (response.auditLogs) {\n      for (const entry of response.auditLogs) {\n        if (entry.user \u0026\u0026\n            entry.user !== 'system' \u0026\u0026\n            entry.user !== 'UNKNOWN' \u0026\u0026\n            !entry.user.includes('@heimdall.dynatrace.com') \u0026\u0026\n            !entry.user.includes('@service.sso.dynatrace.com')) {\n          classicUsers.add(entry.user);\n        }\n      }\n    }\n    nextPageKey = response.nextPageKey ?? undefined;\n  } while (nextPageKey);\n\n  // Step 2: Get Gen3 users from Grail\n  const now = new Date();\n  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);\n\n  const dql = `fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter \\`request.source\\` == \"BROWSER\"\n| filter \\`user.id\\` != \"UNKNOWN\" AND \\`user.id\\` != \"system\"\n| filter isNotNull(\\`dt.app.id\\`) AND \\`dt.app.id\\` != \"dynatrace.appshell\" AND \\`dt.app.id\\` != \"dynatrace.launcher\"\n| lookup [fetch dt.system.events | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(\\`user.email\\`), \"@\") | filter NOT contains(toString(\\`user.email\\`), \"@heimdall.dynatrace.com\") | summarize email = first(\\`user.email\\`), by: {\\`user.id\\`}], sourceField:\\`user.id\\`, lookupField:\\`user.id\\`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(\\`lu.email\\`, \\`user.id\\`)\n| summarize gen3UsersList = collectArray(userEmail), by:{}\n| fields gen3UsersList`;\n\n  const queryResult = await queryExecutionClient.queryExecute({\n    body: {\n      query: dql,\n      requestTimeoutMilliseconds: 60000,\n      defaultTimeframeStart: thirtyDaysAgo.toISOString(),\n      defaultTimeframeEnd: now.toISOString()\n    }\n  });\n\n  const gen3Users = new Set\u003cstring\u003e();\n  if (queryResult.result?.records?.[0]) {\n    const record = queryResult.result.records[0] as Record\u003cstring, unknown\u003e;\n    const userList = record.gen3UsersList as string[];\n    if (userList) {\n      for (const u of userList) {\n        gen3Users.add(u);\n      }\n    }\n  }\n\n  // Step 3: Calculate adoption (pure Gen3 = 1.0 weight, hybrid = 0.5 weight)\n  const allUsers = new Set([...classicUsers, ...gen3Users]);\n  let gen3Only = 0;\n  let hybridUsers = 0;\n  for (const user of allUsers) {\n    const isGen3 = gen3Users.has(user);\n    const isClassic = classicUsers.has(user);\n    if (isGen3 \u0026\u0026 !isClassic) gen3Only++;\n    else if (isGen3 \u0026\u0026 isClassic) hybridUsers++;\n  }\n  const totalUsers = allUsers.size;\n  const weightedAdoption = gen3Only + hybridUsers * 0.5;\n  const adoptionPct = totalUsers \u003e 0 ? Math.round((weightedAdoption / totalUsers) * 1000) / 10 : 0;\n\n  return [{ \"Gen3 Adoption %\": adoptionPct }];\n}",
+          "title": "Gen3 Adoption Rate",
+          "type": "code",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "colorMode": "custom-color",
+                  "comparator": "\u003c",
+                  "customColor": {
+                    "Default": "#eea53c"
+                  },
+                  "field": "Gen3 Adoption %",
+                  "value": 80
+                },
+                {
+                  "colorMode": "custom-color",
+                  "comparator": "\u003c",
+                  "customColor": {
+                    "Default": "#c62239"
+                  },
+                  "field": "Gen3 Adoption %",
+                  "value": 50
+                }
+              ]
+            },
+            "singleValue": {
+              "label": "Gen3 Adoption Rate",
+              "recordField": "Gen3 Adoption %"
+            },
+            "unitsOverrides": [
+              {
+                "added": 1782146510136,
+                "baseUnit": "percent",
+                "cascade": null,
+                "decimals": null,
+                "delimiter": false,
+                "displayUnit": null,
+                "identifier": "Gen3 Adoption %",
+                "suffix": "%",
+                "unitCategory": "percentage"
+              }
+            ]
+          }
+        },
+        "grail-blindspot-assist": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            }
+          },
+          "description": "**What it shows:** Active platform users (10+ browser actions) with zero DQL/Grail usage -- prime Notebooks enablement targets.\n\n**How to use:**\n1. Click the more-options icon on the prompt cell, or right-click on the prompt cell where the prompt is displayed\n2. Select **Open with \u003e Ask Dynatrace Assist a question**\n3. Wait ~30-60 seconds for the full report\n\n**Report covers:**\n- Priority-rated user table (HIGH if 50+ actions, MEDIUM if 10-50)\n- Top 5 high-impact enablement targets\n- Enablement pitch to introduce Grail and Notebooks\n- 3 starter DQL queries to share with users\n- 30-day success metric to measure adoption\n\n\u003e Top 100 most active non-Grail users. Requires 10+ browser actions to filter out inactive users.",
+          "query": "fetch dt.system.events, from: now()-30d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = takeFirst(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd displayName = coalesce(`lu.email`, `user.id`)\n| summarize browserActions = count(), activeDays = countDistinct(formatTimestamp(timestamp, format:\"yyyy-MM-dd\")), lastActive = formatTimestamp(max(timestamp), format:\"yyyy-MM-dd\"), by:{`user.id`, displayName}\n| filter browserActions \u003e= 10\n| lookup [fetch dt.system.events, from: now()-30d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | summarize dqlQueries = count(), by:{`user.email`}], sourceField:displayName, lookupField:`user.email`, prefix:\"dql.\"\n| fieldsAdd dqlQueries = toLong(coalesce(`dql.dqlQueries`, 0))\n| filter dqlQueries == 0\n| sort browserActions desc\n| limit 100\n| summarize userData = collectArray(record(user=displayName, browserActions=browserActions, activeDays=activeDays, lastActive=lastActive)), blindSpotCount = count(), by:{}\n| fieldsAdd\n    prompt = concat(\"Analyze these \", toString(blindSpotCount), \" active Dynatrace users who have ZERO DQL/Grail query executions in the last 30 days. They are active on the platform (10+ browser actions) but have never used Dynatrace Notebooks or run a DQL query. Generate a Grail enablement plan.\\n\\nOUTPUT the following sections:\\n1. Grail Blind Spot User Table: User | Browser Actions | Active Days | Last Active | Enablement Priority\\n   Priority HIGH if \u003e50 browser actions (power user missing Grail), MEDIUM if 10-50\\n2. Top 5 High-Impact Targets: named users most worth enabling on Grail (highest browser actions)\\n3. Enablement Pitch: a 3-sentence message to use when introducing Grail/Notebooks to these users\\n4. Suggested First DQL Queries: 3 simple DQL queries relevant to these users as starting points\\n5. Success Metric: what to measure 30 days after enablement to confirm adoption\"),\n    execute = true,\n    contexts = array(\n      record(type=\"supplementary\", value=toString(record(blindSpotCount, userData))),\n      record(type=\"instruction\", value=\"RULES: Reference ONLY the data. Never invent users or counts. Output clean Markdown with headers and tables. These users are active on the platform ----------------------------------- they are NOT disengaged, just unaware of Grail/Notebooks. Frame recommendations positively.\")\n    )\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Grail \u0026 Notebooks Blind Spots (Dynatrace Assist)",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-notice-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "prompt",
+                  "metadata": {
+                    "applyTo": "row"
+                  },
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            },
+            "table": {
+              "hiddenColumns": [
+                [
+                  "userData"
+                ],
+                [
+                  "blindSpotCount"
+                ],
+                [
+                  "execute"
+                ],
+                [
+                  "contexts"
+                ]
+              ],
+              "hideColumnsForLargeResults": false,
+              "linewrapEnabled": true,
+              "monospacedFontColumns": [
+                [
+                  "prompt"
+                ]
+              ],
+              "monospacedFontEnabled": true
+            }
+          }
+        },
+        "header": {
+          "content": "## Dynatrace Platform Adoption Dashboard\nReal-time adoption analytics powered by Grail audit telemetry. All metrics exclude system accounts and internal services.\n",
+          "type": "markdown"
+        },
+        "human-vs-automation": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily activity split between human users and automated processes.\n\n| Source | Meaning |\n|---|---|\n| `BROWSER` | Human interactive sessions |\n| `DT_SERVERLESS` | Workflows and automations |\n| `OTHER` | API tokens, scripts, integrations |\n\n\u003e A rising automation ratio alongside steady human usage = platform maturing well. Automation growing while human usage drops = check if users have disengaged.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| makeTimeseries browser = countIf(`request.source` == \"BROWSER\"), serverless = countIf(`request.source` == \"DT_SERVERLESS\"), other = countIf(`request.source` == \"OTHER\")\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Human vs Automation",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "kpi-session-depth": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Average number of browser actions per userSession -- measures how deeply users explore per visit.\n\n```\nSession Depth = total browser actions / total userSessions\n```\n\n- **High depth** = users navigating across multiple features per visit\n- **Low depth** = single-action check-ins, shallow usage\n\n\u003e Increasing depth over time = users discovering more platform value.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| filter isNotNull(`origin.session`)\n| summarize actions = count(), by:{`origin.session`}\n| summarize avgDepth = round(avg(toDouble(actions)), decimals:1)\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "userSession Depth (Avg userActions/userSession)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-apdex-fair-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "≥",
+                  "field": "avgDepth",
+                  "type": "double",
+                  "value": null
+                }
+              ]
+            },
+            "singleValue": {
+              "colorThresholdTarget": "background",
+              "isIconVisible": true,
+              "label": "Avg actions/userSession",
+              "labelMode": "none",
+              "prefixIcon": "TargetFilledIcon",
+              "recordField": "avgDepth"
+            }
+          }
+        },
+        "kpi-stickiness": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** DAU/MAU ratio -- measures how habitual platform usage is.\n\n```\nStickiness = (avg daily active users / monthly active users) x 100\n```\n\n| Score | Signal |\n|---|---|\n| \u003c 10% | Low engagement |\n| 20-30% | Good, industry benchmark |\n| 50%+ | Exceptional, daily habit |\n\n\u003e Low stickiness with high MAU = users log in occasionally but have not made it a daily tool.",
+          "query": "fetch dt.system.events, from: now()-30d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| fieldsAdd day = formatTimestamp(timestamp, format:\"yyyy-MM-dd\")\n| summarize activeDays = countDistinct(day), by:{userEmail}\n| summarize stickiness = round(100.0 * avg(toDouble(activeDays)) / 30.0, decimals:1)\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Stickiness (DAU/MAU)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-info-default, #134fc9)",
+                  "colorMode": "single-color",
+                  "comparator": "≥",
+                  "field": "stickiness",
+                  "type": "double",
+                  "value": null
+                }
+              ]
+            },
+            "singleValue": {
+              "colorThresholdTarget": "background",
+              "isIconVisible": true,
+              "label": "%",
+              "labelMode": "none",
+              "prefixIcon": "PercentIcon",
+              "recordField": "stickiness"
+            },
+            "unitsOverrides": [
+              {
+                "added": 1779342746727,
+                "baseUnit": "percent",
+                "cascade": null,
+                "decimals": null,
+                "delimiter": false,
+                "displayUnit": null,
+                "identifier": "stickiness",
+                "suffix": "",
+                "unitCategory": "percentage"
+              }
+            ]
+          }
+        },
+        "kpi-total-sessions": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Total distinct browser userSessions in the selected timeframe.\n\n- A userSession = a unique `origin.session` value from the audit trail\n- Rising userSessions alongside rising users = healthy growth\n- Rising userSessions with flat users = same users logging in more frequently\n\n\u003e Does not count API or automation sessions -- browser only.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| summarize totalSessions = countDistinct(`origin.session`)\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Total userSessions",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "singleValue": {
+              "labelMode": "none",
+              "label": "userSessions",
+              "recordField": "totalSessions",
+              "isIconVisible": true,
+              "colorThresholdTarget": "background"
+            },
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-debug-default, #8b6ecf)",
+                  "colorMode": "single-color",
+                  "comparator": "≥",
+                  "field": "totalSessions",
+                  "type": "long",
+                  "value": null
+                }
+              ]
+            },
+            "autoSelectVisualization": false
+          }
+        },
+        "kpi-unique-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Distinct human users (resolved to email) who performed any browser action in the selected timeframe.\n\n- Excludes system accounts, `heimdall`, and service principals\n- This is the top-line adoption number -- lead with it in customer conversations\n\n\u003e If the number is lower than expected, check the Dormant Users tile for recent drop-off.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| filter isNotNull(`lu.email`)\n| summarize uniqueUsers = countDistinct(`lu.email`)\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Active Users (Unique)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-apdex-excellent-default, #2a7453)",
+                  "colorMode": "single-color",
+                  "comparator": "≥",
+                  "field": "uniqueUsers",
+                  "type": "long",
+                  "value": null
+                }
+              ]
+            },
+            "singleValue": {
+              "colorThresholdTarget": "background",
+              "isIconVisible": true,
+              "label": "Unique Users",
+              "labelMode": "none",
+              "prefixIcon": "AccountFilledIcon",
+              "recordField": "uniqueUsers"
+            }
+          }
+        },
+        "lifecycle-cohorts": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Users segmented by where they are in the adoption lifecycle.\n\n| Cohort | Definition |\n|---|---|\n| **New** | First seen within the last 7 days |\n| **Active** | Veteran users active in the last 3 days |\n| **At Risk** | Last seen 7-14 days ago |\n| **Churned** | Last seen 14+ days ago |\n\n\u003e Focus re-engagement on **At Risk** -- they are still recent enough to recover. Large **Churned** cohort needs a proactive outreach plan.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| summarize firstSeen = min(timestamp), lastSeen = max(timestamp), by:{user.id}\n| fieldsAdd daysSinceFirstSeen = toDouble(now() - firstSeen) / 86400000000000.0\n| fieldsAdd daysSinceLastSeen = toDouble(now() - lastSeen) / 86400000000000.0\n| fieldsAdd cohort = if(daysSinceFirstSeen \u003c= 7, then:\"1-New\", else:if(daysSinceLastSeen \u003c= 3, then:\"2-Active\", else:if(daysSinceLastSeen \u003c= 14, then:\"3-At Risk\", else:\"4-Churned\")))\n| summarize users = count(), by:{cohort}\n| sort cohort asc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "User Lifecycle Cohorts",
+          "type": "data",
+          "visualization": "categoricalBarChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false
+          }
+        },
+        "lifecycle-cohorts-assist": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            }
+          },
+          "description": "**What it shows:** Dynatrace Assist recovery plan for At Risk (7-14d inactive) and Churned (14d+) users.\n\n**How to use:**\n1. Click the more-options icon on the prompt cell, or right-click on the prompt cell where the prompt is displayed\n2. Select **Open with \u003e Ask Dynatrace Assist a question**\n3. Wait ~30-60 seconds for the full report\n\n**Report covers:**\n- Cohort summary with urgency and recommended action\n- At Risk users table with recovery priority\n- Churned users table\n- Action plan per cohort\n- Top 5 users to contact immediately\n\n\u003e 60-day lookback to capture both cohorts. Top 100 users by recency passed to Assist.",
+          "query": "fetch dt.system.events, from: now()-60d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = takeFirst(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd displayName = coalesce(`lu.email`, `user.id`)\n| summarize lastSeen = max(timestamp), totalActions = count(), by:{`user.id`, displayName}\n| fieldsAdd daysSince = round(toDouble(now() - lastSeen) / 86400000000000.0, decimals:0)\n| fieldsAdd lastSeenDate = formatTimestamp(lastSeen, format:\"yyyy-MM-dd\")\n| fieldsAdd cohort = if(daysSince \u003c= 7, null, else:if(daysSince \u003c= 14, \"At Risk\", else:\"Churned\"))\n| filter isNotNull(cohort)\n| sort daysSince asc\n| limit 100\n| summarize userData = collectArray(record(user=displayName, cohort=cohort, daysSince=daysSince, lastSeen=lastSeenDate, actions=totalActions)), atRisk = countIf(cohort == \"At Risk\"), churned = countIf(cohort == \"Churned\"), by:{}\n| fieldsAdd\n    prompt = concat(\"Analyze these lifecycle cohort users. At Risk (7-14 days inactive)=\", toString(atRisk), \" | Churned (14+ days inactive)=\", toString(churned), \".\\n\\nOUTPUT the following sections:\\n1. Cohort Summary table: Cohort | Count | Urgency | Recommended Action\\n2. At Risk Users table (most recent first): User | Days Since Last Seen | Last Active Date | Total Actions | Recovery Priority\\n   Priority: HIGH if \u003e10 total actions (was engaged), LOW if \u003c5 (was light user)\\n3. Churned Users table (same columns as above)\\n4. Recovery Action Plan: 3 specific actions for At Risk users, 2 actions for Churned users\\n5. Users to Prioritise for Immediate Outreach: top 5 named users with the strongest case for recovery\"),\n    execute = true,\n    contexts = array(\n      record(type=\"supplementary\", value=toString(record(atRisk, churned, userData))),\n      record(type=\"instruction\", value=\"RULES: Reference ONLY the data. Never invent users or counts. Output clean Markdown with headers and tables. UUID-format users = anonymous. Prioritise users who were highly engaged (high totalActions) before going quiet.\")\n    )\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Lifecycle Cohorts - At Risk \u0026 Churned (Dynatrace Assist)",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-warning-default, #a9780f)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "prompt",
+                  "metadata": {
+                    "applyTo": "row"
+                  },
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            },
+            "table": {
+              "hiddenColumns": [
+                [
+                  "userData"
+                ],
+                [
+                  "atRisk"
+                ],
+                [
+                  "churned"
+                ],
+                [
+                  "execute"
+                ],
+                [
+                  "contexts"
+                ]
+              ],
+              "hideColumnsForLargeResults": false,
+              "linewrapEnabled": true,
+              "monospacedFontColumns": [
+                [
+                  "prompt"
+                ]
+              ],
+              "monospacedFontEnabled": true
+            },
+            "unitsOverrides": []
+          }
+        },
+        "observability-domain-coverage": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily DQL queries split by the Grail table being queried -- shows what kind of data users are exploring.\n\n- **Wide coverage** (logs + metrics + spans + events) = mature, well-rounded observability practice\n- **Narrow coverage** (only one table) = siloed usage, missed platform value\n- New tables appearing = team expanding observability scope\n\n\u003e Use this to identify which observability domains to highlight in the next enablement session.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"QUERY_EXECUTION_EVENT\"\n| filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\")\n| filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\")\n| filter contains(toString(`user.email`), \"@\")\n| filter isNotNull(`table`) AND `table` != \"\"\n| makeTimeseries queries = count(), by:{`table`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Domain Coverage",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "peak-login-hours": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Login events distributed by hour of the day (UTC).\n\n- Reveals primary timezone(s) of active users\n- Multi-peak distribution = users across multiple regions\n- Use to schedule maintenance windows outside peak hours\n\n\u003e If your customer is global, expect two peaks -- one APAC, one EMEA/US.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter event.type == \"LOGIN\"\n| fieldsAdd hour = formatTimestamp(timestamp, format:\"HH\")\n| summarize logins = count(), by:{hour}\n| sort hour asc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Login Distribution by Hour",
+          "type": "data",
+          "visualization": "treemap",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "colorModeType": {
+              "colorPalette": "blue-steel"
+            },
+            "legend": {
+              "showLegend": false
+            }
+          }
+        },
+        "platform-breadth": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** How many distinct apps each user touches -- measures depth of platform adoption per user.\n\n| Apps Used | User Type |\n|---|---|\n| 7+ apps | Power user, full platform |\n| 3-6 apps | Engaged, room to grow |\n| 1-2 apps | Narrow usage, enablement needed |\n\n\u003e Single-app users often do not know other features exist. A breadth enablement session can quickly shift them to the next tier.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| summarize appCount = countDistinct(`dt.app.id`), by:{user.id}\n| fieldsAdd segment = if(appCount == 1, then:\"1 App\", else:if(appCount \u003c= 3, then:\"2-3 Apps\", else:if(appCount \u003c= 6, then:\"4-6 Apps\", else:\"7+ Apps\")))\n| summarize users = count(), by:{segment}\n| sort segment asc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Platform Breadth",
+          "type": "data",
+          "visualization": "pieChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "right"
+              }
+            },
+            "legend": {
+              "ratio": 20
+            }
+          }
+        },
+        "platform-breadth-assist": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            }
+          },
+          "description": "**What it shows:** Dynatrace Assist analysis for users using only 1-3 apps -- the enablement priority segments.\n\n**How to use:**\n1. Click the more-options icon on the prompt cell, or right-click on the prompt cell where the prompt is displayed\n2. Select **Open with \u003e Ask Dynatrace Assist a question**\n3. Wait ~30-60 seconds for the full report\n\n**Report covers:**\n- All Single App users with priority (HIGH/MEDIUM/LOW by recency)\n- Top 2-3 App users by most recent activity\n- Top 5 named enablement actions\n- Quick wins: 3 users closest to 4+ apps\n- DQL query to copy into a Notebook for the full unlimited list\n\n\u003e Limited to top 100 users to keep Assist response accurate and fast.\n\u003e Total counts reflect all users, not just the 100 shown.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = takeFirst(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd displayName = coalesce(`lu.email`, `user.id`)\n| summarize appCount = countDistinct(`dt.app.id`), lastActive = formatTimestamp(max(timestamp), format:\"yyyy-MM-dd\"), appList = collectDistinct(`dt.app.id`), by:{`user.id`, displayName}\n| fieldsAdd segment = if(appCount == 1, \"Single App\", else:if(appCount \u003c= 3, \"2-3 Apps\", else:null))\n| filter isNotNull(segment)\n| sort appCount asc, lastActive desc\n| limit 100\n| summarize userData = collectArray(record(user=displayName, apps=appCount, segment=segment, lastActive=lastActive, appIds=appList)), singleApp = countIf(segment == \"Single App\"), twoToThree = countIf(segment == \"2-3 Apps\"), by:{}\n| fieldsAdd\n    prompt = concat(\"Analyze the Dynatrace Platform Breadth enablement data. IMPORTANT: This report shows the top 100 priority users (Single App first, then most recently active 2-3 App users). Total counts across ALL users: Single App=\", toString(singleApp), \" | 2-3 Apps=\", toString(twoToThree), \".\\n\\nOUTPUT the following sections:\\n1. Segment Overview table: Segment | Total Count (all users) | Shown in this report | Signal\\n2. Single App Users table (all shown): User | App ID(s) | Last Active | Priority\\n   Mark HIGH if active in last 14 days, MEDIUM if 15-30 days, LOW if older. Show the app ID(s) from appIds field for each user.\\n3. 2-3 App Users table (top entries shown): User | App ID(s) | Last Active | Next Step\\n4. Top 5 Enablement Actions with named users where possible\\n5. Quick Wins: 3 users closest to graduating to 4+ Apps\\n6. DQL Query to Extract Full List: Output a ready-to-run DQL query block that retrieves ALL 1-3 app users without a limit, so the user can copy it into a Dynatrace Notebook to see the complete list. The query should be formatted as a markdown code block with language dql.\"),\n    execute = true,\n    contexts = array(\n      record(\n        type = \"supplementary\",\n        value = toString(record(singleApp, twoToThree, userData))\n      ),\n      record(\n        type = \"instruction\",\n        value = \"RULES: Reference ONLY the data. Never invent users or counts. Output clean Markdown with headers. Use tables for all user lists. UUID-format users = anonymous, label them as UUID in the User column. For the DQL query section, always output this exact query as a fenced dql code block:\\n\\nfetch dt.system.events\\n| filter event.kind == \\\"AUDIT_EVENT\\\" AND event.provider == \\\"API_GATEWAY\\\" AND `request.source` == \\\"BROWSER\\\"\\n| filter `user.id` != \\\"UNKNOWN\\\" AND `user.id` != \\\"system\\\"\\n| lookup [fetch dt.system.events | filter event.kind == \\\"QUERY_EXECUTION_EVENT\\\" | filter contains(toString(`user.email`), \\\"@\\\") | filter NOT contains(toString(`user.email`), \\\"@heimdall.dynatrace.com\\\") | summarize email = takeFirst(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\\\"lu.\\\"\\n| fieldsAdd displayName = coalesce(`lu.email`, `user.id`)\\n| summarize appCount = countDistinct(`dt.app.id`), lastActive = formatTimestamp(max(timestamp), format:\\\"yyyy-MM-dd\\\"), appList = collectDistinct(`dt.app.id`), by:{`user.id`, displayName}\\n| fieldsAdd segment = if(appCount == 1, \\\"Single App\\\", else:if(appCount \u003c= 3, \\\"2-3 Apps\\\", else:null))\\n| filter isNotNull(segment)\\n| sort appCount asc, lastActive desc\\n| fields displayName, appCount, appList, segment, lastActive\\n\\nTell the user to copy this query into a Dynatrace Notebook DQL cell and set the timeframe to get the complete unfiltered list.\"\n      )\n    )\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Platform Breadth User Analysis (Dynatrace Assist)",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "coloring": {
+              "colorRules": [
+                {
+                  "color": "var(--dt-colors-charts-loglevel-info-default, #134fc9)",
+                  "colorMode": "single-color",
+                  "comparator": "= *value*",
+                  "field": "prompt",
+                  "metadata": {
+                    "applyTo": "row"
+                  },
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            },
+            "table": {
+              "hiddenColumns": [
+                [
+                  "userData"
+                ],
+                [
+                  "singleApp"
+                ],
+                [
+                  "twoToThree"
+                ],
+                [
+                  "execute"
+                ],
+                [
+                  "contexts"
+                ]
+              ],
+              "hideColumnsForLargeResults": false,
+              "linewrapEnabled": true,
+              "monospacedFontColumns": [
+                [
+                  "prompt"
+                ]
+              ],
+              "monospacedFontEnabled": true
+            }
+          }
+        },
+        "platform-cost": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Top 15 platform capabilities by execution count -- excluding Retain events (which track stored data size, not usage).\n\n| Column | Meaning |\n|---|---|\n| **Capability** | Dynatrace feature or product tier |\n| **Executions** | Number of billing events fired (queries run, functions called, workflows triggered) |\n| **Scanned GB** | Data volume scanned -- only populated for query-type capabilities |\n\n- **High executions + zero GB** = count-billed capability (AppEngine, Automation, Full-Stack, K8s)\n- **High scanned GB** = data-billed capability (Logs, Traces, Events queries) -- primary cost driver\n- Zero executions for a capability = licensed but unused\n\n\u003e Retain events are excluded -- they reflect total stored data size, not per-query consumption.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"BILLING_USAGE_EVENT\"\n| filter NOT endsWith(`event.type`, \"- Retain\") AND NOT endsWith(`event.type`, \"- Retain with Included Queries\")\n| summarize executions = count(), scannedGB = round(sum(toDouble(`billed_bytes`)) / 1073741824, decimals:1), by:{capability = `event.type`}\n| sort executions desc\n| limit 15\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Platform Capability Usage",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "query-analytics": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** DQL query activity per Grail table -- volume, execution duration, and data scanned.\n\n- **High volume + fast duration** = efficient, well-indexed queries\n- **High scanned GB** = expensive queries, may need optimisation\n- **Missing tables** = those data domains are not being queried yet\n\n\u003e Gaps in table coverage are direct enablement opportunities -- show users what data is available.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"QUERY_EXECUTION_EVENT\"\n| filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\")\n| filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\")\n| filter contains(toString(`user.email`), \"@\")\n| summarize queries = count(), uniqueUsers = countDistinct(`user.email`), avgDurationMs = round(avg(toDouble(`execution_duration_ms`)), decimals:1), scannedGB = round(sum(toDouble(`scanned_bytes`)) / 1073741824, decimals:3), by:{`table`}\n| sort queries desc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Query Activity by Table",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "read-write-ratio": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Read (GET) vs Write (POST/PUT/PATCH/DELETE) API calls per app.\n\n| Pattern | Signal |\n|---|---|\n| High write ratio | Active content creation -- dashboards, workflows, configs |\n| Low write ratio | Passive consumption -- viewing only |\n\n\u003e High read-only usage is fine for monitoring. Low write ratio in apps like Workflows or Dashboards signals the user has not started building yet.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter isNotNull(`dt.app.id`) AND `dt.app.id` != \"dynatrace.appshell\" AND `dt.app.id` != \"dynatrace.launcher\"\n| fieldsAdd readAction = if(event.type == \"GET\", then:1, else:0)\n| fieldsAdd writeAction = if(event.type == \"POST\" OR event.type == \"PUT\" OR event.type == \"PATCH\" OR event.type == \"DELETE\", then:1, else:0)\n| summarize reads = sum(readAction), writes = sum(writeAction), by:{`dt.app.id`}\n| fieldsAdd total = reads + writes\n| fieldsAdd writeRatioPct = round(100.0 * toDouble(writes) / toDouble(total), decimals:1)\n| sort total desc\n| limit 15\n| fields `dt.app.id`, reads, writes, total, writeRatioPct\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Read vs Write by App",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "reports-section-header": {
+          "content": "### Dynatrace Assist Reports\n",
+          "type": "markdown"
+        },
+        "section-gen3-migration": {
+          "content": "### Gen3 Migration\n",
+          "type": "markdown"
+        },
+        "section-platform-breadth": {
+          "content": "### Platform Breadth \u0026 Usage\n",
+          "type": "markdown"
+        },
+        "section-platform-health": {
+          "content": "### Platform Health\n",
+          "type": "markdown"
+        },
+        "section-user-activity": {
+          "content": "### User Activity \u0026 Trends\n",
+          "type": "markdown"
+        },
+        "section-user-lifecycle": {
+          "content": "### User Lifecycle \u0026 Engagement\n",
+          "type": "markdown"
+        },
+        "top-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Top 20 users by total browser actions, with active days, userSessions, and app breadth.\n\n- These are your **platform champions** -- leverage them for peer enablement\n- High actions + low app count = deep in one area, could explore more\n- High app count = true power user, advocate candidate\n\n\u003e A named champion accelerates adoption faster than any training.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize totalActions = count(), activeDays = countDistinct(formatTimestamp(timestamp, format:\"yyyy-MM-dd\")), sessions = countDistinct(`origin.session`), appsUsed = countDistinct(`dt.app.id`), by:{userEmail}\n| sort totalActions desc\n| limit 20\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Top 20 Power Users",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "user-engagement-scorecard": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Full per-user engagement profile -- active days, userSessions, browser actions, apps, DQL queries, tables queried, and data scanned.\n\n- Most comprehensive single view of individual user behaviour\n- Sort by any column to find the deepest users per dimension\n- Zero queries + high actions = active but not using Grail for self-service\n\n\u003e Use this to build a personalised enablement plan for each user segment.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| summarize browserActions = count(), sessions = countDistinct(`origin.session`), activeDays = countDistinct(formatTimestamp(timestamp, format:\"yyyy-MM-dd\")), appsUsed = countDistinct(`dt.app.id`), by:{userEmail}\n| lookup [fetch dt.system.events | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize queries = count(), tablesQueried = countDistinct(`table`), scannedGB = sum(toDouble(`scanned_bytes`)) / 1073741824, by: {`user.email`}], sourceField:userEmail, lookupField:`user.email`, prefix:\"q.\"\n| fieldsAdd queries = toLong(`q.queries`), tablesQueried = toLong(`q.tablesQueried`), scannedGB = round(toDouble(`q.scannedGB`), decimals:2)\n| fields userEmail, activeDays, sessions, browserActions, appsUsed, queries, tablesQueried, scannedGB\n| sort browserActions desc\n| limit 100\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "User Engagement Scorecard",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "weekly-growth-trend": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Week-over-week change in unique users and total browser actions.\n\n- **Both growing** = healthy organic adoption, not automation noise\n- **Actions growing, users flat** = same users doing more -- good depth signal\n- **Users growing, actions flat** = new users, but not yet deeply engaged\n\n\u003e Consistent multi-week growth is the strongest proof point for adoption health.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| makeTimeseries users = countDistinct(`user.id`), actions = count(), interval: 7d",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Weekly Growth",
+          "type": "data",
+          "visualization": "barChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "fieldMapping": {
+                "leftAxisValues": [
+                  "users"
+                ]
+              },
+              "legend": {
+                "position": "bottom"
+              }
+            },
+            "coloring": {
+              "colorRules": [
+                {
+                  "colorMode": "color-palette",
+                  "colorPalette": "petrol",
+                  "comparator": "= *value*",
+                  "field": "DT.name",
+                  "type": "string",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        "weekly-returning-users": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Users who were active in at least 2 distinct calendar weeks over the last 14 days.\n\n- Measures week-over-week retention -- a stronger signal than daily return\n- High count = platform is part of their weekly routine\n- Declining count = users logging in once then dropping off\n\n\u003e Fixed 14-day window. Use alongside Daily Returning Users for both daily and weekly habit signals.",
+          "query": "fetch dt.system.events, from: now()-14d\n| filter event.kind == \"AUDIT_EVENT\"\n| filter event.provider == \"API_GATEWAY\"\n| filter `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-14d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| fieldsAdd week = formatTimestamp(timestamp, format:\"yyyy-'W'ww\")\n| summarize activeWeeks = countDistinct(week), by:{userEmail}\n| filter activeWeeks \u003e= 2\n| summarize weeklyReturning = count()\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Weekly Returners (2+ weeks active)",
+          "type": "data",
+          "visualization": "singleValue",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "singleValue": {
+              "isIconVisible": true,
+              "label": "2+ weeks active",
+              "labelMode": "none",
+              "prefixIcon": "AccountFilledIcon",
+              "recordField": "weeklyReturning"
+            }
+          }
+        },
+        "workflow-health": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Workflow execution success rates per workflow, colour-coded by health threshold.\n\n| Colour | Success Rate |\n|---|---|\n| Green | \u003e= 90% |\n| Yellow | 50-89% |\n| Red | \u003c 50% |\n\n\u003e Red workflows need immediate investigation -- they represent broken automation that users or processes may be depending on.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"WORKFLOW_EVENT\"\n| filter event.type == \"ACTION_EXECUTION\"\n| filter `dt.automation_engine.state.is_final` == true\n| summarize executions = count(), successes = countIf(`dt.automation_engine.state` == \"SUCCESS\"), failures = countIf(`dt.automation_engine.state` != \"SUCCESS\"), by:{`dt.automation_engine.workflow.title`}\n| fieldsAdd successRate = round(100.0 * toDouble(successes) / toDouble(executions), decimals:1)\n| sort executions desc\n| limit 15\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Workflow Health",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        },
+        "workflow-trend": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Daily workflow action executions split by final execution state.\n\n- **Growing SUCCESS, flat FAILED** = automation scaling healthily\n- **Growing FAILED** = new workflows introduced without enough testing\n- **Total volume drop** = workflows disabled or removed\n\n\u003e A flat or declining workflow trend in a mature account is a red flag -- automation should grow as platform adoption deepens.",
+          "query": "fetch dt.system.events\n| filter event.kind == \"WORKFLOW_EVENT\"\n| filter event.type == \"ACTION_EXECUTION\"\n| filter `dt.automation_engine.state.is_final` == true\n| makeTimeseries total = count(), by:{`dt.automation_engine.state`}\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Workflow Execution Trend",
+          "type": "data",
+          "visualization": "areaChart",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "chartSettings": {
+              "legend": {
+                "position": "bottom"
+              }
+            }
+          }
+        },
+        "wow-summary": {
+          "davis": {
+            "davisVisualization": {
+              "isAvailable": true
+            },
+            "enabled": false
+          },
+          "description": "**What it shows:** Side-by-side comparison of the current 7-day window vs the prior 7-day window.\n\n- Tracks: unique users, userSessions, total actions, session depth\n- Green delta = improvement, Red delta = regression\n- Catches short-term momentum shifts before they show in monthly trends\n\n\u003e Always-on fixed 14d window. Not affected by dashboard timeframe selector.",
+          "query": "fetch dt.system.events, from: now()-14d\n| filter event.kind == \"AUDIT_EVENT\" AND event.provider == \"API_GATEWAY\" AND `request.source` == \"BROWSER\"\n| filter `user.id` != \"UNKNOWN\" AND `user.id` != \"system\"\n| lookup [fetch dt.system.events, from: now()-365d | filter event.kind == \"QUERY_EXECUTION_EVENT\" | filter contains(toString(`user.email`), \"@\") | filter NOT contains(toString(`user.email`), \"@heimdall.dynatrace.com\") | filter NOT contains(toString(`user.email`), \"@service.sso.dynatrace.com\") | summarize email = first(`user.email`), by: {`user.id`}], sourceField:`user.id`, lookupField:`user.id`, prefix:\"lu.\"\n| fieldsAdd userEmail = coalesce(`lu.email`, `user.id`)\n| fieldsAdd period = if(timestamp \u003e= now()-7d, then:\"This Week\", else:\"Prior Week\")\n| summarize users = countDistinct(userEmail), sessions = countDistinct(`origin.session`), actions = count(), by:{period}\n| fieldsAdd actionsPerSession = round(toDouble(actions) / toDouble(sessions), decimals:1)\n| fields period, users, sessions, actions, actionsPerSession\n| sort period desc\n",
+          "querySettings": {
+            "defaultSamplingRatio": 10,
+            "defaultScanLimitGbytes": 500,
+            "enableSampling": false,
+            "maxResultMegaBytes": 1,
+            "maxResultRecords": 1000
+          },
+          "title": "Week-over-Week Comparison",
+          "type": "data",
+          "visualization": "table",
+          "visualizationSettings": {
+            "autoSelectVisualization": false,
+            "table": {
+              "linewrapEnabled": true
+            }
+          }
+        }
+      },
+      "variables": [],
+      "version": 21
+    }}

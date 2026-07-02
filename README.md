@@ -25,7 +25,7 @@ The Dynatrace Tenant Review is:
 
 ![Platform Adoption Dashboard](./Platform%20Adoption/screenshot.png "Platform Adoption Dashboard")
 
-This Dashboard leverages Grail™ events, query execution telemetry, workflow events and billing data to surface actionable insights about how your organization uses Dynatrace. With 57 tiles across 5 labelled sections it covers active users, stickiness, app adoption rankings, lifecycle cohorts, legacy migration tracking, workflow health, DQL analytics, Dynatrace Intelligence and Dynatrace Assist usage, and more.
+This Dashboard leverages Grail™ events, query execution telemetry, workflow events and billing data to surface actionable insights about how your organization uses Dynatrace. With 59 tiles across 5 labelled sections it covers active users, stickiness, app adoption rankings, lifecycle cohorts, legacy migration tracking, workflow health, DQL analytics, Dynatrace Intelligence and Dynatrace Assist usage, and more.
 
 Admins can download and import the JSON definition of the Dashboard in their own tenant to understand which teams are active, which platform capabilities are under-utilized, and where to focus enablement efforts.
 
@@ -40,6 +40,7 @@ The Platform Adoption Dashboard is:
 **Usage**:
 
 - Monitor overall platform adoption with KPI cards (Active Users, Stickiness, User Sessions, Maturity Score)
+- Diagnose your **Adoption Maturity Score** with the Maturity Gaps tile — see exactly which dimension (Users / Apps / API / AI) is pulling the score down and what action to take
 - Track user lifecycle cohorts (New, Active, At-Risk, Churned) and retention
 - Identify top power users and app-level usage rankings
 - Measure 3rd Gen adoption rate — hybrid users are weighted at 0.5x for a more accurate migration signal
@@ -51,16 +52,16 @@ The Platform Adoption Dashboard is:
 - Generate a **Dynatrace Assist narrative report** summarizing adoption trends, top users, trending/fading apps, and recommended next steps for the past 30 days
 - Share filtered views with stakeholders to drive adoption initiatives
 
-**What's new in v1.3.0**:
+**What's new in v1.4.0**:
 
-- Branding updated: Davis CoPilot → **Dynatrace Assist**, Davis AI → **Dynatrace Intelligence**, sessions/pageviews → **userSessions/userActions**
-- Gen3 Adoption Rate formula corrected: hybrid users now weighted at **0.5x** instead of counted as full adopters
-- Classic-Only Users tile rebuilt to cross-reference Gen3 data — API calls and UUID-style logins no longer inflate the count
-- External API Access and Platform Capability Usage tiles rebuilt with correct DQL fields
-- 5 new **Dynatrace Assist Report** tiles added and grouped at the top of the dashboard
-- 5 new section headers added for easier navigation
-- All 44 existing tile descriptions rewritten for clarity; encoding corruption resolved
-- Total tile count: **48 → 57**
+- Adoption maturity score now accurate — was stuck at 75/100 on most tenants regardless of API usage
+- Week-over-week comparison is now a true 7-vs-7 split (was comparing 7 days against 23 days)
+- Month-over-month trend shows real delta — adoption report was always showing 0% change
+- More users now resolve to real email addresses (~35% were showing as UUIDs due to short lookback window)
+- Service bot accounts no longer pollute user lists or skew counts
+- New **Maturity Gaps** tile — shows which of the 4 dimensions (Users / Apps / API / AI) is pulling the score down, with a specific action to fix each gap
+- KPI tiles now display their icons (Active Users, Sessions, Stickiness, etc.)
+- Maturity Gaps tile has traffic-light color coding (red/amber/green per dimension)
 
 ## Software Obsolescence Management
 *The solution that lets you stay on top of your software portfolio.*
