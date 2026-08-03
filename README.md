@@ -39,8 +39,9 @@ The Platform Adoption Dashboard is:
 
 **Usage**:
 
-- Monitor overall platform adoption with KPI cards (Active Users, Stickiness, User Sessions, Maturity Score)
-- Diagnose your **Adoption Maturity Score** with the Maturity Gaps tile — see exactly which dimension (Users / Apps / API / AI) is pulling the score down and what action to take
+- Monitor overall platform adoption with KPI cards (Active Users, Stickiness, User Sessions, DPA Score)
+- Diagnose your **DPA Score** with the Gaps & Actions tile — see exactly which of the 7 dimensions (Users / App Breadth / AI Volume / AI Quality / API / Stickiness / Power Users) is pulling the score down and what action to take
+- Scope any view with the **User** and **Domain** filters — e.g. exclude internal or partner domains for a clean customer-only picture
 - Track user lifecycle cohorts (New, Active, At-Risk, Churned) and retention
 - Identify top power users and app-level usage rankings
 - Measure 3rd Gen adoption rate — hybrid users are weighted at 0.5x for a more accurate migration signal
@@ -52,16 +53,15 @@ The Platform Adoption Dashboard is:
 - Generate a **Dynatrace Assist narrative report** summarizing adoption trends, top users, trending/fading apps, and recommended next steps for the past 30 days
 - Share filtered views with stakeholders to drive adoption initiatives
 
-**What's new in v1.4.0**:
+**What's new in v1.5.0**:
 
-- Adoption maturity score now accurate — was stuck at 75/100 on most tenants regardless of API usage
-- Week-over-week comparison is now a true 7-vs-7 split (was comparing 7 days against 23 days)
-- Month-over-month trend shows real delta — adoption report was always showing 0% change
-- More users now resolve to real email addresses (~35% were showing as UUIDs due to short lookback window)
-- Service bot accounts no longer pollute user lists or skew counts
-- New **Maturity Gaps** tile — shows which of the 4 dimensions (Users / Apps / API / AI) is pulling the score down, with a specific action to fix each gap
-- KPI tiles now display their icons (Active Users, Sessions, Stickiness, etc.)
-- Maturity Gaps tile has traffic-light color coding (red/amber/green per dimension)
+- New **User** and **Domain** filters — scope every tile to specific users or email domains, e.g. exclude internal/partner activity that skews adoption numbers (community feedback). Assist tiles are intentionally unfiltered
+- Maturity score rebuilt and renamed **DPA Score** — 7-dimension continuous framework (Users, App Breadth, AI Volume, AI Quality, API Integration, Stickiness, Power Users) with proportional scoring, so partial progress is always visible instead of binary thresholds
+- **DPA Score - Gaps & Actions** tile redesigned — one row per dimension sorted worst-first, with traffic-light coloring on Score % and a concrete action per gap
+- Stickiness is now a true **DAU/MAU** ratio (community feedback) — the old formula measured per-user engagement rate, not stickiness
+- All 5 **Dynatrace Assist** report tiles hardened — prompts and instructions reworked to pass the AI guardrails reliably, fixed 30-day windows for accurate month-over-month math, divide-by-zero guards, and UUID false positives removed from the Grail Blind Spots report
+- New **feedback tile** — share suggestions directly from the dashboard header
+- Every tile now carries a standardized info description: what it shows, how to interpret it, and caveats
 
 ## Software Obsolescence Management
 *The solution that lets you stay on top of your software portfolio.*
